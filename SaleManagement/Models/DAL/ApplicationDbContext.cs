@@ -13,7 +13,7 @@ namespace SaleManagement.Models.DAL
         {
 
         }
-        public DbSet<Account> Account { get; set; }
+        public DbSet<Admin> Admin { get; set; }
         public DbSet<Customer> Customer { get; set; }
         public DbSet<DetailSaleBill> DetailSaleBill { get; set; }
         public DbSet<DetailWareHouseReceiptBill> DetailWareHouseReceiptBill { get; set; }
@@ -29,6 +29,20 @@ namespace SaleManagement.Models.DAL
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            /*
+            modelBuilder.Entity<Customer>().Map(m =>
+            {
+                m.MapInheritedProperties();
+                m.ToTable("Customer");
+            });
+
+            modelBuilder.Entity<Staff>().Map(m =>
+            {
+                m.MapInheritedProperties();
+                m.ToTable("Staff");
+            });
+            */
         }
     }
 }

@@ -15,33 +15,6 @@ namespace SaleManagement.Controllers
         public ApplicationDbContext _context = new ApplicationDbContext();
 
         [HttpGet]
-        public ActionResult LoginOLD()
-        {
-            return View();
-        }
-        
-        [HttpPost]
-        public ActionResult LoginOLD(String username, String PasswordEncrypted)
-        {
-            Debug.WriteLine(username + ":::" + PasswordEncrypted);
-            if(_context.Account.Any(m => m.UserName == username && m.PasswordEncrypted == PasswordEncrypted))
-            {
-                return View("~/Views/Home/Index.cshtml");
-            } else
-            {
-                ViewBag.Result = "Login fail";
-                return View();
-            }
-            
-        }
-
-
-
-
-        
-        
-
-        [HttpGet]
         public ActionResult Login()
         {
             return View("~/Views/DangNhap/DangNhap.cshtml");
@@ -51,24 +24,49 @@ namespace SaleManagement.Controllers
         public ActionResult Login(string username, string password, string role)
         {
             Debug.WriteLine(username + ":::" + password);
-            Account account = _context.Account.SingleOrDefault(m => m.UserName == username);
-            if (account != null)
+            if (role == "Admin")
             {
-                string passwordHashed = EncryptionHelper.GetHash(password + account.Salt);
-                if (account.PasswordEncrypted == passwordHashed)
+                Admin admin = _context.Admin.SingleOrDefault(m => m.UserName == username);
+                if (admin != null) // Nếu tồn tại tài khoản.
                 {
-                    return View("~/Views/Home/Index.cshtml");
+                    string passwordHashed = EncryptionHelper.GetHash(password + admin.Salt); //Kiểm tra password.
+                    if (admin.PasswordEncrypted == passwordHashed)
+                    {
+                        return View("~/Views/Home/Index.cshtml"); // Đưa về trang màn hình chính.
+                    }
+                    else
+                    {
+                        ViewBag.Result = "WrongPassword";
+                        return View("~/Views/Login/Login.cshtml");
+                    }
                 }
                 else
-                {                    
-                    ViewBag.Result = "WrongPassword";
+                {
+                    ViewBag.Result = "UserNameNotExists";
                     return View("~/Views/Login/Login.cshtml");
                 }
-            }    
+            }
             else
             {
-                ViewBag.Result = "UserNameNotExists";
-                return View("~/Views/Login/Login.cshtml");
+                Staff staff = _context.Staff.SingleOrDefault(m => m.UserName == username);
+                if (staff != null) // Nếu tồn tại tài khoản.
+                {
+                    string passwordHashed = EncryptionHelper.GetHash(password + staff.Salt); //Kiểm tra password.
+                    if (staff.PasswordEncrypted == passwordHashed)
+                    {
+                        return View("~/Views/Home/Index.cshtml"); // Đưa về trang màn hình chính.
+                    }
+                    else
+                    {
+                        ViewBag.Result = "WrongPassword";
+                        return View("~/Views/Login/Login.cshtml");
+                    }
+                }
+                else
+                {
+                    ViewBag.Result = "UserNameNotExists";
+                    return View("~/Views/Login/Login.cshtml");
+                }
             }
         }
 

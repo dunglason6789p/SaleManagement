@@ -13,6 +13,11 @@ namespace SaleManagement.Controllers
     {
         public ApplicationDbContext _context = new ApplicationDbContext();
 
+        public ActionResult Index()
+        {
+            return RedirectToAction("SignUp");
+        }
+
         [HttpGet]
         public ActionResult SignUp()
         {
@@ -27,17 +32,15 @@ namespace SaleManagement.Controllers
                 ViewBag.Result = "WrongConfirmpassword";
                 return View();
             }
-            if (_context.Account.Any(m => m.UserName == username))
+            if (_context.Admin.Any(m => m.UserName == username))
             {
                 ViewBag.Result = "UserNameExisted";
                 return View();
             }
-            _context.Account.Add(new Account() {
+            _context.Admin.Add(new Admin() {
                 UserName = username,
                 PasswordEncrypted = EncryptionHelper.GetHash(password + EncryptionHelper.GetSalt()),
-                Status = 0,
-                CustomerID = 0,
-                RoleCode = 0,
+                Status = 0
             });
 
             ViewBag.Result = "Success";

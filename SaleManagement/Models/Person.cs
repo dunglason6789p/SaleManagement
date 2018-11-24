@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SaleManagement.Models
 {
@@ -14,13 +15,6 @@ namespace SaleManagement.Models
         private string _familyName;
         private string _fullName;
         
-        /// <summary>
-        /// Đây không phải là UserName, mà chỉ là 1 cách thức để kết nối 1 tài khoản đến một đối tượng người dùng hệ thống (Customer/Staff/...). 
-        /// ID sẽ được tạo tự động trong database (auto-increment).
-        /// </summary>
-        [Key]
-        public int ID { get; private set; }
-
         /// <summary>
         /// 0=nữ, 1=nam
         /// </summary>
