@@ -1,3 +1,80 @@
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\SaleManagement.dll.config
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\SaleManagement.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\SaleManagement.pdb
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\csc.exe
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\csc.exe.config
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\csc.rsp
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\csi.exe
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\csi.exe.config
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\csi.rsp
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.AppContext.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.Collections.Immutable.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.Console.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.Diagnostics.Process.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.IO.Compression.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.IO.FileSystem.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.IO.Pipes.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.Reflection.Metadata.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.Security.AccessControl.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.Security.Claims.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.Security.Principal.Windows.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.Threading.Thread.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.ValueTuple.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.Xml.XmlDocument.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.Xml.XPath.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\vbc.exe
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\vbc.exe.config
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\vbc.rsp
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\VBCSCompiler.exe
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\roslyn\VBCSCompiler.exe.config
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\EntityFramework.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\EntityFramework.SqlServer.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\Microsoft.Web.Infrastructure.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\System.Web.Helpers.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\System.Web.Mvc.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\System.Web.Razor.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\System.Web.Webpages.Deployment.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\System.Web.Webpages.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\System.Web.Webpages.Razor.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\EntityFramework.xml
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\EntityFramework.SqlServer.xml
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\System.Web.Razor.xml
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\System.Web.Webpages.xml
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\System.Web.Webpages.Deployment.xml
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\System.Web.Webpages.Razor.xml
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\System.Web.Helpers.xml
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\System.Web.Mvc.xml
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csprojAssemblyReference.cache
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\obj\Debug\SaleManagement.Migrations.MigModel1.resources
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.GenerateResource.cache
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.CoreCompileInputs.cache
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.CopyComplete
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\obj\Debug\SaleManagement.dll
+D:\temp\temp\___________TIENG-ANH\GITHUB__211118\SaleManagement\SaleManagement\obj\Debug\SaleManagement.pdb
 D:\temp\PTPMCN______________________________________________________\ASPNET_MVC\SaleManagement\SaleManagement\bin\SaleManagement.dll.config
 D:\temp\PTPMCN______________________________________________________\ASPNET_MVC\SaleManagement\SaleManagement\bin\SaleManagement.dll
 D:\temp\PTPMCN______________________________________________________\ASPNET_MVC\SaleManagement\SaleManagement\bin\SaleManagement.pdb
@@ -73,157 +150,5 @@ D:\temp\PTPMCN______________________________________________________\ASPNET_MVC\
 D:\temp\PTPMCN______________________________________________________\ASPNET_MVC\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.CopyComplete
 D:\temp\PTPMCN______________________________________________________\ASPNET_MVC\SaleManagement\SaleManagement\obj\Debug\SaleManagement.dll
 D:\temp\PTPMCN______________________________________________________\ASPNET_MVC\SaleManagement\SaleManagement\obj\Debug\SaleManagement.pdb
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\SaleManagement.dll.config
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\SaleManagement.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\SaleManagement.pdb
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\EntityFramework.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\EntityFramework.SqlServer.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\System.Web.Helpers.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\System.Web.Mvc.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\System.Web.Razor.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\System.Web.Webpages.Deployment.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\System.Web.Webpages.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\System.Web.Webpages.Razor.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\EntityFramework.xml
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\EntityFramework.SqlServer.xml
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\System.Web.Razor.xml
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\System.Web.Webpages.xml
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\System.Web.Webpages.Deployment.xml
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\System.Web.Webpages.Razor.xml
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\System.Web.Helpers.xml
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\System.Web.Mvc.xml
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csprojAssemblyReference.cache
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.CoreCompileInputs.cache
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.CopyComplete
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\obj\Debug\SaleManagement.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\obj\Debug\SaleManagement.pdb
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\csc.exe
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\csc.exe.config
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\csc.rsp
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\csi.exe
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\csi.exe.config
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\csi.rsp
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\Microsoft.Win32.Primitives.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.AppContext.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.Console.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.Diagnostics.Process.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.IO.Compression.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.IO.FileSystem.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.IO.FileSystem.Primitives.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.IO.Pipes.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.Security.AccessControl.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.Security.Claims.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.Security.Cryptography.Encoding.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.Security.Cryptography.Primitives.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.Security.Principal.Windows.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.Text.Encoding.CodePages.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.Threading.Thread.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.ValueTuple.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.Xml.ReaderWriter.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.Xml.XmlDocument.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.Xml.XPath.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\System.Xml.XPath.XDocument.dll
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\vbc.exe
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\vbc.exe.config
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\vbc.rsp
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\VBCSCompiler.exe
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\obj\Debug\SaleManagement.Migrations.MigModel1.resources
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.GenerateResource.cache
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\SaleManagement.dll.config
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\SaleManagement.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\SaleManagement.pdb
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\EntityFramework.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\EntityFramework.SqlServer.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\System.Web.Helpers.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\System.Web.Mvc.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\System.Web.Razor.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\System.Web.Webpages.Deployment.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\System.Web.Webpages.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\System.Web.Webpages.Razor.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\EntityFramework.xml
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\EntityFramework.SqlServer.xml
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\System.Web.Razor.xml
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\System.Web.Webpages.xml
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\System.Web.Webpages.Deployment.xml
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\System.Web.Webpages.Razor.xml
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\System.Web.Helpers.xml
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\System.Web.Mvc.xml
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csprojAssemblyReference.cache
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\obj\Debug\SaleManagement.Migrations.MigModel1.resources
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.GenerateResource.cache
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.CoreCompileInputs.cache
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.CopyComplete
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\obj\Debug\SaleManagement.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\obj\Debug\SaleManagement.pdb
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\csc.exe
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\csc.exe.config
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\csc.rsp
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\csi.exe
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\csi.exe.config
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\csi.rsp
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\Microsoft.Win32.Primitives.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.AppContext.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.Console.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.Diagnostics.Process.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.IO.Compression.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.IO.FileSystem.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.IO.FileSystem.Primitives.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.IO.Pipes.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.Security.AccessControl.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.Security.Claims.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.Security.Cryptography.Encoding.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.Security.Cryptography.Primitives.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.Security.Principal.Windows.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.Text.Encoding.CodePages.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.Threading.Thread.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.ValueTuple.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.Xml.ReaderWriter.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.Xml.XmlDocument.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.Xml.XPath.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\System.Xml.XPath.XDocument.dll
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\vbc.exe
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\vbc.exe.config
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\vbc.rsp
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\VBCSCompiler.exe
-C:\Users\buitr\OneDrive\Máy tính\SaleManagement\SaleManagement\bin\roslyn\VBCSCompiler.exe.config
+D:\temp\PTPMCN______________________________________________________\ASPNET_MVC\SaleManagement\SaleManagement\obj\Debug\SaleManagement.Migrations.MigModel1.resources
+D:\temp\PTPMCN______________________________________________________\ASPNET_MVC\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.GenerateResource.cache

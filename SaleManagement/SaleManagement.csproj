@@ -95,9 +95,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\mydatabase.mdf" />
+    <Content Include="App_Data\mydatabase_log.ldf">
+      <DependentUpon>mydatabase.mdf</DependentUpon>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -307,6 +316,7 @@
     <Content Include="Views\Dashboard\assets\libs\flot.tooltip\js\jquery.flot.tooltip.js" />
     <Content Include="Views\Dashboard\assets\libs\flot.tooltip\js\jquery.flot.tooltip.min.js" />
     <Content Include="Views\Dashboard\assets\libs\flot.tooltip\js\jquery.flot.tooltip.source.js" />
+    <Content Include="Views\Dashboard\assets\libs\flot\.gitignore" />
     <Content Include="Views\Dashboard\assets\libs\flot\css\float-chart.css" />
     <Content Include="Views\Dashboard\assets\libs\flot\examples\ajax\index.html" />
     <Content Include="Views\Dashboard\assets\libs\flot\examples\annotating\index.html" />
@@ -807,6 +817,7 @@
     <Content Include="Views\Dashboard\assets\libs\toastr\build\toastr.min.js" />
     <Content Include="Views\Dashboard\assets\libs\toastr\toastr-icon.png" />
     <Content Include="Views\Dashboard\assets\libs\toastr\toastr.js" />
+    <Content Include="Views\Dashboard\Dashboard.html" />
     <Content Include="Views\Dashboard\dist\css\icons\font-awesome\css\fa-brands.css" />
     <Content Include="Views\Dashboard\dist\css\icons\font-awesome\css\fa-brands.min.css" />
     <Content Include="Views\Dashboard\dist\css\icons\font-awesome\css\fa-regular.css" />
@@ -883,7 +894,49 @@
     <Content Include="Views\Dashboard\html\ltr\pages-invoice.html" />
     <Content Include="Views\Dashboard\html\ltr\tables.html" />
     <Content Include="Views\Dashboard\html\ltr\widgets.html" />
-    <Content Include="Views\Dashboard\Dashboard.html" />
+    <Content Include="Views\SignUp\css\main.css" />
+    <Content Include="Views\SignUp\css\util.css" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Views\SignUp\fonts\iconic\css\material-design-iconic-font.css" />
+    <Content Include="Views\SignUp\fonts\iconic\css\material-design-iconic-font.min.css" />
+    <Content Include="Views\SignUp\fonts\iconic\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Views\SignUp\images\bg-01.jpg" />
+    <Content Include="Views\SignUp\images\icons\favicon.ico" />
+    <Content Include="Views\SignUp\js\main.js" />
+    <Content Include="Views\SignUp\SignUp.cshtml" />
+    <Content Include="Views\SignUp\vendor\animate\animate.css" />
+    <Content Include="Views\SignUp\vendor\animsition\css\animsition.css" />
+    <Content Include="Views\SignUp\vendor\animsition\css\animsition.min.css" />
+    <Content Include="Views\SignUp\vendor\animsition\js\animsition.js" />
+    <Content Include="Views\SignUp\vendor\animsition\js\animsition.min.js" />
+    <Content Include="Views\SignUp\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Views\SignUp\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Views\SignUp\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Views\SignUp\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Views\SignUp\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Views\SignUp\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Views\SignUp\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Views\SignUp\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Views\SignUp\vendor\bootstrap\js\popper.js" />
+    <Content Include="Views\SignUp\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="Views\SignUp\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="Views\SignUp\vendor\countdowntime\countdowntime.js" />
+    <Content Include="Views\SignUp\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="Views\SignUp\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="Views\SignUp\vendor\daterangepicker\daterangepicker.css" />
+    <Content Include="Views\SignUp\vendor\daterangepicker\daterangepicker.js" />
+    <Content Include="Views\SignUp\vendor\daterangepicker\moment.js" />
+    <Content Include="Views\SignUp\vendor\daterangepicker\moment.min.js" />
+    <Content Include="Views\SignUp\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="Views\SignUp\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="Views\SignUp\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="Views\SignUp\vendor\select2\select2.css" />
+    <Content Include="Views\SignUp\vendor\select2\select2.js" />
+    <Content Include="Views\SignUp\vendor\select2\select2.min.css" />
+    <Content Include="Views\SignUp\vendor\select2\select2.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -892,15 +945,17 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
+    <Compile Include="Controllers\Utilities\EncryptionHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811200745565_MigModel1.cs" />
-    <Compile Include="Migrations\201811200745565_MigModel1.Designer.cs">
-      <DependentUpon>201811200745565_MigModel1.cs</DependentUpon>
+    <Compile Include="Migrations\201811240411338_MigModel1.cs" />
+    <Compile Include="Migrations\201811240411338_MigModel1.Designer.cs">
+      <DependentUpon>201811240411338_MigModel1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DAL\ApplicationDbContext.cs" />
     <Compile Include="Models\DetailSaleBill.cs" />
@@ -912,27 +967,91 @@
     <Compile Include="Models\ReceiptVoucher.cs" />
     <Compile Include="Models\SaleBill.cs" />
     <Compile Include="Models\Staff.cs" />
+    <Compile Include="Models\Store.cs" />
     <Compile Include="Models\Supplier.cs" />
     <Compile Include="Models\WareHouseReceiptBill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\web.config" />
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Views\SignUp\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Views\SignUp\fonts\iconic\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="Views\SignUp\fonts\iconic\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Views\SignUp\fonts\iconic\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Views\SignUp\fonts\iconic\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Views\SignUp\fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="Views\SignUp\fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="Views\SignUp\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="Views\SignUp\fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="Views\SignUp\fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="Views\SignUp\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="Views\SignUp\fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="Views\SignUp\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="Views\SignUp\fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="Views\SignUp\fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="Views\SignUp\fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="Views\SignUp\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="Views\SignUp\fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="Views\SignUp\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="Views\SignUp\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="Views\SignUp\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="Views\SignUp\fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="Views\SignUp\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="Views\SignUp\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Views\SignUp\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Views\SignUp\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Views\SignUp\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Views\SignUp\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Views\SignUp\vendor\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Dashboard\Dashboard.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Dashboard\assets\images\big\Thumbs.db" />
+    <Content Include="Views\Dashboard\assets\images\logo-icon.png.bak" />
+    <Content Include="Views\Dashboard\assets\images\logo-text.png.bak" />
     <Content Include="Views\Dashboard\assets\libs\datatables\media\images\Sorting icons.psd" />
     <Content Include="Views\Dashboard\assets\libs\flot.tooltip\.bower.json" />
     <Content Include="Views\Dashboard\assets\libs\flot.tooltip\bower.json" />
     <Content Include="Views\Dashboard\assets\libs\flot\.bower.json" />
-    <Content Include="Views\Dashboard\assets\libs\flot\.gitignore" />
     <Content Include="Views\Dashboard\assets\libs\flot\.travis.yml" />
     <Content Include="Views\Dashboard\assets\libs\flot\API.md" />
     <Content Include="Views\Dashboard\assets\libs\flot\component.json" />
@@ -984,6 +1103,8 @@
     <Content Include="Views\Dashboard\assets\libs\jquery-steps\build\jQuery.Steps.1.1.0.nupkg" />
     <Content Include="Views\Dashboard\assets\libs\jquery-steps\nuget\jQuery.Steps.nuspec" />
     <Content Include="Views\Dashboard\assets\libs\jquery-steps\steps.jquery.json" />
+    <Content Include="Views\Dashboard\Dashboard.cshtml" />
+    <Content Include="Views\Dashboard\Dashboard.html.bak" />
     <Content Include="Views\Dashboard\dist\css\icons\font-awesome\less\fa-brands.less" />
     <Content Include="Views\Dashboard\dist\css\icons\font-awesome\less\fa-regular.less" />
     <Content Include="Views\Dashboard\dist\css\icons\font-awesome\less\fa-solid.less" />
@@ -1116,14 +1237,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Content\" />
     <Folder Include="Models\ViewModels\" />
-    <Folder Include="Views\SignUp\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201811200745565_MigModel1.resx">
-      <DependentUpon>201811200745565_MigModel1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811240411338_MigModel1.resx">
+      <DependentUpon>201811240411338_MigModel1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

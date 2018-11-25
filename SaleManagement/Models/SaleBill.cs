@@ -9,9 +9,9 @@ namespace SaleManagement.Models
 {
     public class SaleBill
     {
-        private Customer _customer;
-        private int _totalAmount;
-        private int _totalValue;
+        
+        
+        
 
         /// <summary>
         /// Mã hóa đơn.
@@ -23,6 +23,8 @@ namespace SaleManagement.Models
         /// Chỉ dùng trong trường hợp khách hàng có thẻ thành viên, để tích lũy điểm thưởng. Nếu không, trường này sẽ là NULL.
         /// </summary>
         public int CustomerID { get; set; }
+        private Customer _customer;
+        [ForeignKey("CustomerID")]
         public Customer Customer
         {
             get => _customer; set
@@ -32,6 +34,10 @@ namespace SaleManagement.Models
             }
         }
 
+        /// <summary>
+        /// Biến private cho property TotalValue.
+        /// </summary>
+        private int _totalValue;
         /// <summary>
         /// Tổng giá trị hóa đơn bán.
         /// </summary>
@@ -48,6 +54,7 @@ namespace SaleManagement.Models
             }
             private set { }
         }
+        
 
         /// <summary>
         /// Ngày tạo
@@ -58,6 +65,21 @@ namespace SaleManagement.Models
         /// Discount by entering coupon code.
         /// </summary>
         public int DiscountValue { get; set; }
+
+        /// <summary>
+        /// Mã cửa hàng.
+        /// </summary>
+        public int StoreID { get; set; }
+        private Store _store;
+        [ForeignKey("StoreID")]
+        public virtual Store Store
+        {
+            get => _store; set
+            {
+                _store = value;
+                StoreID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
+            }
+        }
 
         public virtual ICollection<DetailSaleBill> DetailSaleBills { get; set; }
     }

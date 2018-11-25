@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -25,12 +26,13 @@ namespace SaleManagement.Models
         /// Chỉ dùng trong trường hợp khách hàng có thẻ thành viên, để tích lũy điểm thưởng. Nếu không, trường này sẽ là NULL.
         /// </summary>
         public int SupplierID { get; set; }
+        [ForeignKey("SupplierID")]
         public Supplier Supplier
         {
             get => _supplier; set
             {
                 _supplier = value;
-                SupplierID = value.ID;
+                SupplierID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
             }
         }
 
@@ -60,6 +62,21 @@ namespace SaleManagement.Models
         /// Discount by entering coupon code.
         /// </summary>
         public int DiscountValue { get; set; }
+
+        /// <summary>
+        /// Mã cửa hàng.
+        /// </summary>
+        public int StoreID { get; set; }
+        private Store _store;
+        [ForeignKey("StoreID")]
+        public virtual Store Store
+        {
+            get => _store; set
+            {
+                _store = value;
+                StoreID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
+            }
+        }
 
         public virtual ICollection<DetailSaleBill> DetailSaleBills { get; set; }
     }
