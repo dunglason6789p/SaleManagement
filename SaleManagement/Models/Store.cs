@@ -15,7 +15,7 @@ namespace SaleManagement.Models
 
         public int AdminID { get; set; }
         private Admin _admin;
-        [ForeignKey("AdminID")]
+        [NotMapped]
         public virtual Admin Admin
         {
             get => _admin; set
@@ -25,16 +25,27 @@ namespace SaleManagement.Models
             }
         }
 
+        [NotMapped]
+        public virtual ICollection<Category> Categories { get; set; }
+        [NotMapped]
         public virtual ICollection<Customer> Customers { get; set; }
-        public virtual ICollection<DetailSaleBill> DetailSaleBills { get; set; }
-        public virtual ICollection<DetailWareHouseReceiptBill> DetailWareHouseReceiptBills { get; set; }
+        [NotMapped]
+        public virtual ICollection<SaleBillDetail> SaleBillDetails { get; set; }
+        [NotMapped]
+        public virtual ICollection<ImportBillDetail> ImportBillDetails { get; set; }
+        [NotMapped]
         public virtual ICollection<PaymentVoucher> PaymentVouchers { get; set; }
-        public virtual ICollection<Product> Products { get; set; }
-        public virtual ICollection<ProductGroup> ProductGroups { get; set; }
+        [NotMapped]
+        public virtual ICollection<Product> Products { get; set; }       
+        [NotMapped]
         public virtual ICollection<ReceiptVoucher> ReceiptVouchers { get; set; }
+        [NotMapped]
         public virtual ICollection<SaleBill> SaleBills { get; set; }
+        [NotMapped]
         public virtual ICollection<Staff> Staffs { get; set; }
+        [NotMapped]
         public virtual ICollection<Supplier> Suppliers { get; set; }
-        public virtual ICollection<WareHouseReceiptBill> WareHouseReceiptBills { get; set; }
+        [NotMapped]
+        public virtual ICollection<ImportBill> ImportBills { get; set; }
     }
 }

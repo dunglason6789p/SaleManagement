@@ -25,7 +25,7 @@ namespace SaleManagement.Models
         /// </summary>
         public int StoreID { get; set; }
         private Store _store;
-        [ForeignKey("StoreID")]
+        [NotMapped]
         public virtual Store Store
         {
             get => _store; set

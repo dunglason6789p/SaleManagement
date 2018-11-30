@@ -17,6 +17,10 @@ namespace SaleManagement.Models
         [Key]
         public int ID { get; set; } // KHÔNG PHẢI UserName. Không dùng để đăng nhập.
 
+        [StringLength(450)]
+        [Index(IsUnique = true)] // UNIQUE CONSTRAINT.
+        public string Code { get; set; }
+
         /// <summary>
         /// UserName. Dùng để đăng nhập.
         /// </summary>   
@@ -42,7 +46,7 @@ namespace SaleManagement.Models
         /// </summary>
         public int StoreID { get; set; }
         private Store _store;
-        [ForeignKey("StoreID")]
+        [NotMapped]
         public virtual Store Store
         {
             get => _store; set

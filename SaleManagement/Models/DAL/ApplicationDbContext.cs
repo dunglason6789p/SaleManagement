@@ -14,17 +14,19 @@ namespace SaleManagement.Models.DAL
 
         }
         public DbSet<Admin> Admin { get; set; }
-        public DbSet<Customer> Customer { get; set; }
-        public DbSet<DetailSaleBill> DetailSaleBill { get; set; }
-        public DbSet<DetailWareHouseReceiptBill> DetailWareHouseReceiptBill { get; set; }
+        public DbSet<Category> Category { get; set; }
+        public DbSet<Customer> Customer { get; set; }        
+        public DbSet<ImportBill> ImportBill { get; set; }
+        public DbSet<ImportBillDetail> ImportBillDetail { get; set; }
         public DbSet<PaymentVoucher> PaymentVoucher { get; set; }
-        public DbSet<Product> Product { get; set; }
-        public DbSet<ProductGroup> ProductGroup { get; set; }
+        public DbSet<Product> Product { get; set; }        
         public DbSet<ReceiptVoucher> ReceiptVoucher { get; set; }
         public DbSet<SaleBill> SaleBill { get; set; }
+        public DbSet<SaleBillDetail> SaleBillDetail { get; set; }
         public DbSet<Staff> Staff { get; set; }
+        public DbSet<Store> Store { get; set; }
         public DbSet<Supplier> Supplier { get; set; }
-        public DbSet<WareHouseReceiptBill> WareHouseReceiptBill { get; set; }
+        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

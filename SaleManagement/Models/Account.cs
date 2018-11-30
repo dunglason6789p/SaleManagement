@@ -1,4 +1,6 @@
-﻿namespace SaleManagement.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SaleManagement.Models
 {
     /// <summary>
     /// Đây là 1 Interface. Lớp Admin và Staff sẽ implement interface này.
@@ -13,6 +15,7 @@
         /// <summary>
         /// UserName. Dùng để đăng nhập.
         /// </summary>        
+        [Display(Name = "Tên đăng nhập")]
         string UserName { get; set; }
 
         /// <summary>
@@ -25,6 +28,7 @@
         /// <summary>
         /// 1=active, 0=disabled
         /// </summary>
+        [Display(Name = "Trạngt thái")]
         int Status { get; set; }
     }
 }

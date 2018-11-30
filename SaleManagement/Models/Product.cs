@@ -12,6 +12,10 @@ namespace SaleManagement.Models
         [Key]
         public int ID { get; set; }
 
+        [StringLength(450)]
+        [Index(IsUnique = true)] // UNIQUE CONSTRAINT.
+        public string Code { get; set; }
+
         /// <summary>
         /// Tên sản phẩm
         /// </summary>
@@ -20,17 +24,18 @@ namespace SaleManagement.Models
         /// <summary>
         /// Tên đơn vị hàng (gói/chai/kg/ ...)
         /// </summary>
-        public string UnitName { get; set; }        
+        public string UnitName { get; set; }
 
-        /// <summary>
-        /// Giá bán
-        /// </summary>
-        public int Price { get; set; }
+        public int RetailPrice { get; set; }
+
+        public int WholesalePrice { get; set; }
+
+        public int WholesaleMinAmount { get; set; }
 
         /// <summary>
         /// Giá (chi phí) nhập trung bình
         /// </summary>
-        public string AverageCost { get; set; }
+        public double AverageCost { get; set; }
 
         /// <summary>
         /// Giảm giá (%)
@@ -60,14 +65,15 @@ namespace SaleManagement.Models
         /// <summary>
         /// URL của ảnh sản phẩm
         /// </summary>
-        public virtual ICollection<string> Images { get; set; }
+        public string Image { get; set; }
 
         /// <summary>
         /// Mã cửa hàng.
         /// </summary>
         public int StoreID { get; set; }
+        [NotMapped]
         private Store _store;
-        [ForeignKey("StoreID")]
+        [NotMapped]
         public virtual Store Store
         {
             get => _store; set

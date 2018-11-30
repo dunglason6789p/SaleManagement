@@ -16,18 +16,21 @@ namespace SaleManagement.Models
     {
         [Key]
         public int ID { get; set; }
-
+        
         /// <summary>
         /// Số điểm trong thẻ tích điểm.
         /// </summary>
+        [Display(Name = "Điểm tích lũy")]
         public int Point { get; set; }
 
         /// <summary>
         /// Mã cửa hàng.
         /// </summary>
+        [Display(Name = "Mã cửa hàng")]
         public int StoreID { get; set; }
+        [NotMapped]
         private Store _store;
-        [ForeignKey("StoreID")]
+        [NotMapped]
         public virtual Store Store
         {
             get => _store; set

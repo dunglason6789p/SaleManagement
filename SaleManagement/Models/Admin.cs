@@ -39,6 +39,7 @@ namespace SaleManagement.Models
         /// <summary>
         /// Một tài khoản Admin có thể sở hữu nhiều cửa hàng.
         /// </summary>
+        [NotMapped]
         public virtual ICollection<Store> Stores { get; set; }
     }
 }

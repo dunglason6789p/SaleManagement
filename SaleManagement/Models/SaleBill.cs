@@ -24,7 +24,7 @@ namespace SaleManagement.Models
         /// </summary>
         public int CustomerID { get; set; }
         private Customer _customer;
-        [ForeignKey("CustomerID")]
+        [NotMapped]
         public Customer Customer
         {
             get => _customer; set
@@ -46,9 +46,9 @@ namespace SaleManagement.Models
             get
             {
                 int sum = 0;
-                foreach (var item in DetailSaleBills)
+                foreach (var item in SaleBillDetails)
                 {
-                    sum += (item.Amount * item.Product.Price);
+                    sum += (item.Amount * item.Price);
                 }
                 return sum;
             }
@@ -71,7 +71,7 @@ namespace SaleManagement.Models
         /// </summary>
         public int StoreID { get; set; }
         private Store _store;
-        [ForeignKey("StoreID")]
+        [NotMapped]
         public virtual Store Store
         {
             get => _store; set
@@ -80,7 +80,8 @@ namespace SaleManagement.Models
                 StoreID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
             }
         }
-
-        public virtual ICollection<DetailSaleBill> DetailSaleBills { get; set; }
+        
+        [NotMapped]
+        public virtual ICollection<SaleBillDetail> SaleBillDetails { get; set; }
     }
 }

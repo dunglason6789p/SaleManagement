@@ -14,7 +14,7 @@ namespace SaleManagement.Models
 
         public int StaffID { get; set; }
         private Staff _staff;
-        [ForeignKey("StaffID")]
+        [NotMapped]
         public Staff Staff
         {
             get => _staff; set
@@ -27,7 +27,7 @@ namespace SaleManagement.Models
         //Cho phép khách hàng nợ tiền mua hàng, nhưng yêu cầu khách phải có thông tin cá nhân đăng ký với cửa hàng.
         public int CustomerID { get; set; }
         private Customer _customer;
-        [ForeignKey("CustomerID")]
+        [NotMapped]
         public Customer Customer
         {
             get => _customer; set
@@ -48,7 +48,7 @@ namespace SaleManagement.Models
         /// </summary>
         public int StoreID { get; set; }
         private Store _store;
-        [ForeignKey("StoreID")]
+        [NotMapped]
         public virtual Store Store
         {
             get => _store; set

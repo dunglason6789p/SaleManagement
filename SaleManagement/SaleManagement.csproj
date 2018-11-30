@@ -95,10 +95,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\mydatabase.mdf" />
-    <Content Include="App_Data\mydatabase_log.ldf">
-      <DependentUpon>mydatabase.mdf</DependentUpon>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
@@ -944,32 +940,33 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Controllers\Utilities\EncryptionHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811240411338_MigModel1.cs" />
-    <Compile Include="Migrations\201811240411338_MigModel1.Designer.cs">
-      <DependentUpon>201811240411338_MigModel1.cs</DependentUpon>
+    <Compile Include="Migrations\201811300928131_MigModel6.cs" />
+    <Compile Include="Migrations\201811300928131_MigModel6.Designer.cs">
+      <DependentUpon>201811300928131_MigModel6.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DAL\ApplicationDbContext.cs" />
-    <Compile Include="Models\DetailSaleBill.cs" />
-    <Compile Include="Models\DetailWareHouseReceiptBill.cs" />
+    <Compile Include="Models\SaleBillDetail.cs" />
+    <Compile Include="Models\ImportBillDetail.cs" />
     <Compile Include="Models\PaymentVoucher.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\ProductGroup.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\ReceiptVoucher.cs" />
     <Compile Include="Models\SaleBill.cs" />
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\Store.cs" />
     <Compile Include="Models\Supplier.cs" />
-    <Compile Include="Models\WareHouseReceiptBill.cs" />
+    <Compile Include="Models\ImportBill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1229,6 +1226,7 @@
     <Content Include="Views\Dashboard\dist\css\icons\weather-icons\sass\weather-icons-wind.scss" />
     <Content Include="Views\Dashboard\dist\css\icons\weather-icons\sass\weather-icons.min.scss" />
     <Content Include="Views\Dashboard\dist\css\icons\weather-icons\sass\weather-icons.scss" />
+    <Content Include="Views\Product\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1237,12 +1235,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Content\" />
     <Folder Include="Models\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201811240411338_MigModel1.resx">
-      <DependentUpon>201811240411338_MigModel1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201811300928131_MigModel6.resx">
+      <DependentUpon>201811300928131_MigModel6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
