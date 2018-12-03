@@ -17,8 +17,7 @@ namespace SaleManagement.Models
         [Key]
         public int ID { get; set; } // KHÔNG PHẢI UserName. Không dùng để đăng nhập.
 
-        [StringLength(450)]
-        [Index(IsUnique = true)] // UNIQUE CONSTRAINT.
+        //Unique check is done only in application layer (unique by each store).
         public string Code { get; set; }
 
         /// <summary>

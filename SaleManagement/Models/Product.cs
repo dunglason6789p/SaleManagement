@@ -12,8 +12,7 @@ namespace SaleManagement.Models
         [Key]
         public int ID { get; set; }
 
-        [StringLength(450)]
-        [Index(IsUnique = true)] // UNIQUE CONSTRAINT.
+        //Unique check is done only in application layer (unique by each store).
         public string Code { get; set; }
 
         /// <summary>
@@ -24,6 +23,7 @@ namespace SaleManagement.Models
         /// <summary>
         /// Tên đơn vị hàng (gói/chai/kg/ ...)
         /// </summary>
+        [Display(Name="Đơn vị tính")]
         public string UnitName { get; set; }
 
         public int RetailPrice { get; set; }
@@ -40,12 +40,20 @@ namespace SaleManagement.Models
         /// <summary>
         /// Giảm giá (%)
         /// </summary>
-        public int DiscountRate { get; set; }
+        public int DiscountRate { get; set; }        
 
         /// <summary>
-        /// Mô tả ngắn gọn
+        /// Số hàng còn trong kho (cũng là số hàng có thể bán).
         /// </summary>
-        public string Description { get; set; }
+        public int Availability { get; set; }
+
+        /// <summary>
+        /// Lượng đã bán
+        /// </summary>
+        public int AmountSold { get; set; }
+
+        //Không kết nối tới bảng Category, lý do là để đơn giản hóa.
+        public string CategoryName { get; set; }
 
         /// <summary>
         /// Xuất xứ (từ quốc gia nào).
@@ -55,17 +63,22 @@ namespace SaleManagement.Models
         /// <summary>
         /// Tên nhãn hàng (Apple, Samsung, Omachi, ...)
         /// </summary>
-        public string Brand { get; set; }
+        public string BrandName { get; set; }
 
-        /// <summary>
-        /// Số hàng còn trong kho (cũng là số hàng có thể bán).
-        /// </summary>
-        public int Availability { get; set; }
+
+        public DateTime DateCreated { get; set; }
+
+        public int Status { get; set; }
 
         /// <summary>
         /// URL của ảnh sản phẩm
         /// </summary>
         public string Image { get; set; }
+
+        /// <summary>
+        /// Mô tả ngắn gọn
+        /// </summary>
+        public string Description { get; set; }
 
         /// <summary>
         /// Mã cửa hàng.

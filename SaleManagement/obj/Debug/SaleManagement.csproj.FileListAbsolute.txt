@@ -222,10 +222,14 @@ D:\ptpmcn__\SaleManagement\bin\System.Web.Webpages.Razor.xml
 D:\ptpmcn__\SaleManagement\bin\System.Web.Helpers.xml
 D:\ptpmcn__\SaleManagement\bin\System.Web.Mvc.xml
 D:\ptpmcn__\SaleManagement\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\ptpmcn__\SaleManagement\obj\Debug\SaleManagement.csprojAssemblyReference.cache
 D:\ptpmcn__\SaleManagement\obj\Debug\SaleManagement.csproj.CoreCompileInputs.cache
 D:\ptpmcn__\SaleManagement\obj\Debug\SaleManagement.csproj.CopyComplete
 D:\ptpmcn__\SaleManagement\obj\Debug\SaleManagement.dll
 D:\ptpmcn__\SaleManagement\obj\Debug\SaleManagement.pdb
 D:\ptpmcn__\SaleManagement\obj\Debug\SaleManagement.Migrations.MigModel6.resources
 D:\ptpmcn__\SaleManagement\obj\Debug\SaleManagement.csproj.GenerateResource.cache
+D:\ptpmcn__\SaleManagement\bin\PagedList.dll
+D:\ptpmcn__\SaleManagement\bin\PagedList.Mvc.dll
+D:\ptpmcn__\SaleManagement\bin\PagedList.xml
+D:\ptpmcn__\SaleManagement\bin\PagedList.Mvc.xml
+D:\ptpmcn__\SaleManagement\obj\Debug\SaleManagement.csprojAssemblyReference.cache

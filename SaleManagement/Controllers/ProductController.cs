@@ -24,6 +24,7 @@ namespace SaleManagement.Controllers
             return View();
         }
 
+        /*
         [HttpPost]
         public ActionResult Create(Product product)
         {
@@ -36,6 +37,7 @@ namespace SaleManagement.Controllers
 
             return View(product);
         }
+        */
 
         [HttpGet]
         public ActionResult Edit(int productID)
@@ -57,44 +59,27 @@ namespace SaleManagement.Controllers
             return View(product);
         }
 
-        /*
         [HttpPost]
         public ActionResult Create(string nullString)
         {
-            Product productDebug = new Product();
+            Product product = new Product();
 
-            productDebug.Code = Request["Code"];
-            productDebug.Name = Request["Name"];
-            productDebug.UnitName = Request["UnitName"];
-            productDebug.RetailPrice = Int32.Parse(Request["RetailPrice"]);
-            productDebug.WholesalePrice = Int32.Parse(Request["WholesalePrice"]);
-            productDebug.WholesaleMinAmount = Int32.Parse(Request["WholesaleMinAmount"]);
-            productDebug.AverageCost = Double.Parse(Request["AverageCost"]);
-            productDebug.DiscountRate = Int32.Parse(Request["DiscountRate"]);
-            productDebug.Description = Request["Description"];
-            productDebug.Origin = Request["Origin"];
-            productDebug.Brand = Request["Brand"];
-            productDebug.Availability = Int32.Parse(Request["Availability"]);
-            productDebug.Image = Request["Image"];
-            productDebug.StoreID = Int32.Parse(Request["StoreID"]);
+            product.Code = Request["Code"];
+            product.Name = Request["Name"];
+            product.UnitName = Request["UnitName"];
+            product.RetailPrice = Int32.Parse(Request["RetailPrice"]);
+            product.WholesalePrice = Int32.Parse(Request["WholesalePrice"]);
+            product.WholesaleMinAmount = Int32.Parse(Request["WholesaleMinAmount"]);
+            product.AverageCost = Double.Parse(Request["AverageCost"]);
+            product.DiscountRate = Int32.Parse(Request["DiscountRate"]);
+            product.Description = Request["Description"];
+            product.Origin = Request["Origin"];
+            product.BrandName = Request["BrandName"];
+            product.Availability = Int32.Parse(Request["Availability"]);
+            product.DateCreated = DateTime.ParseExact(Request["DateCreated"].ToString(), "yyyy-MM-dd HH:mm:ss,fff", System.Globalization.CultureInfo.InvariantCulture);
+            product.Image = Request["Image"];
+            product.StoreID = Int32.Parse(Session["StoreID"].ToString());
 
-            Product product = new Product()
-            {
-                Code = Request["Code"],
-                Name = Request["Name"],
-                UnitName = Request["UnitName"],
-                RetailPrice = Int32.Parse(Request["RetailPrice"]),
-                WholesalePrice = Int32.Parse(Request["WholesalePrice"]),
-                WholesaleMinAmount = Int32.Parse(Request["WholesaleMinAmount"]),
-                AverageCost = Double.Parse(Request["AverageCost"]),
-                DiscountRate = Int32.Parse(Request["DiscountRate"]),
-                Description = Request["Description"],
-                Origin = Request["Origin"],
-                Brand = Request["Brand"],
-                Availability = Int32.Parse(Request["Availability"]),
-                Image = Request["Image"],
-                StoreID = Int32.Parse(Request["StoreID"]),
-            };
 
             string nextAction = Request["NextAction"];
             switch(nextAction)
@@ -107,6 +92,17 @@ namespace SaleManagement.Controllers
                     return View();
             }
         }
-        */
+
+        public JsonResult SearchByCode(string searchString)
+        {
+            List<Product> productList = _context.Product.Where(m => m.Code.StartsWith(searchString)).ToList();
+            return Json(productList);
+        }
+
+        public JsonResult SearchByName(string searchString)
+        {
+            List<Product> productList = _context.Product.Where(m => m.Name.StartsWith(searchString)).ToList();
+            return Json(productList);
+        }
     }
 }

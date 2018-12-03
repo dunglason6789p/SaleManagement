@@ -25,6 +25,9 @@ namespace SaleManagement.Models
         [Key]
         public int ID { get; set; }
 
+        //Unique check is done only in application layer (unique by each store).
+        public string Code { get; set; }
+
         /// <summary>
         /// abc.
         /// </summary>

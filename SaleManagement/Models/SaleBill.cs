@@ -9,15 +9,14 @@ namespace SaleManagement.Models
 {
     public class SaleBill
     {
-        
-        
-        
-
         /// <summary>
         /// Mã hóa đơn.
         /// </summary>
         [Key]
         public int ID { get; set; }
+
+        //Unique check is done only in application layer (unique by each store).
+        public string Code { get; set; }
 
         /// <summary>
         /// Chỉ dùng trong trường hợp khách hàng có thẻ thành viên, để tích lũy điểm thưởng. Nếu không, trường này sẽ là NULL.
@@ -31,6 +30,19 @@ namespace SaleManagement.Models
             {
                 _customer = value;
                 CustomerID = value.ID;
+            }
+        }
+
+        public int StaffID { get; set; }
+        [NotMapped]
+        private Staff _staff;
+        [NotMapped]
+        public Staff Staff
+        {
+            get => _staff; set
+            {
+                _staff = value;
+                StaffID = value.ID;
             }
         }
 
@@ -54,7 +66,12 @@ namespace SaleManagement.Models
             }
             private set { }
         }
-        
+
+        public int PaymentBank { get; set; }
+
+        public int PaymentCash { get; set; }
+
+        public int PaymentTotal { get { return PaymentBank + PaymentCash; } set => PaymentTotal = value; }
 
         /// <summary>
         /// Ngày tạo
@@ -70,6 +87,7 @@ namespace SaleManagement.Models
         /// Mã cửa hàng.
         /// </summary>
         public int StoreID { get; set; }
+        [NotMapped]
         private Store _store;
         [NotMapped]
         public virtual Store Store
@@ -80,7 +98,7 @@ namespace SaleManagement.Models
                 StoreID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
             }
         }
-        
+
         [NotMapped]
         public virtual ICollection<SaleBillDetail> SaleBillDetails { get; set; }
     }
