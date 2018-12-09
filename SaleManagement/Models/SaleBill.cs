@@ -29,7 +29,7 @@ namespace SaleManagement.Models
             get => _customer; set
             {
                 _customer = value;
-                CustomerID = value.ID;
+                if (value != null) CustomerID = value.ID;
             }
         }
 
@@ -42,36 +42,23 @@ namespace SaleManagement.Models
             get => _staff; set
             {
                 _staff = value;
-                StaffID = value.ID;
+                if (value != null) StaffID = value.ID;
             }
         }
 
         /// <summary>
         /// Biến private cho property TotalValue.
         /// </summary>
-        private int _totalValue;
         /// <summary>
         /// Tổng giá trị hóa đơn bán.
         /// </summary>
-        public int TotalValue
-        {
-            get
-            {
-                int sum = 0;
-                foreach (var item in SaleBillDetails)
-                {
-                    sum += (item.Amount * item.Price);
-                }
-                return sum;
-            }
-            private set { }
-        }
+        public int TotalValue { get; set; }
 
         public int PaymentBank { get; set; }
 
         public int PaymentCash { get; set; }
 
-        public int PaymentTotal { get { return PaymentBank + PaymentCash; } set => PaymentTotal = value; }
+        public int GetPaymentTotal() { return PaymentBank + PaymentCash; }
 
         /// <summary>
         /// Ngày tạo
@@ -95,11 +82,28 @@ namespace SaleManagement.Models
             get => _store; set
             {
                 _store = value;
-                StoreID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
+                if (value != null) StoreID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
             }
         }
 
         [NotMapped]
         public virtual ICollection<SaleBillDetail> SaleBillDetails { get; set; }
+
+        public void RefreshTotalValue()
+        {
+            TotalValue = GetTotalValue();
+        }
+
+        public int GetTotalValue()
+        {
+            int sum = 0;
+            if (SaleBillDetails != null)
+                foreach (var item in SaleBillDetails)
+                {
+                    if (item != null) sum += item.Amount * item.Price;
+                    else SaleBillDetails.Remove(item);
+                }
+            return sum;
+        }
     }
 }

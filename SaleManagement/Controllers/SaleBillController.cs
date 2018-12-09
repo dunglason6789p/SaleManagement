@@ -128,7 +128,15 @@ namespace SaleManagement.Controllers
                 item.Staff = _context.Staff.SingleOrDefault(m => m.ID == item.StaffID);
             }
 
-            return View(); //("~/Views/TraCuuHocPhan/TimKiem.cshtml", null, to page list...);
+            return View("~/Views/TraCuuHocPhan/TimKiem.cshtml", null, saleBillsList);
+        }
+
+        public JsonResult CreateSaleBill(SaleBill saleBill)
+        {
+            int id = CRUD.SaleBillCRUD.CreateSaleBill(saleBill);
+            return Json(new {
+                ID = id
+            });
         }
 
         

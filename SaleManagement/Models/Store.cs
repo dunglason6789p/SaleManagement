@@ -21,7 +21,7 @@ namespace SaleManagement.Models
             get => _admin; set
             {
                 _admin = value;
-                AdminID = value.ID;
+                if (value != null) AdminID = value.ID;
             }
         }
 

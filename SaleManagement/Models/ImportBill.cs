@@ -14,10 +14,6 @@ namespace SaleManagement.Models
     {
         [NotMapped]
         private Supplier _supplier;
-        [NotMapped]
-        private int _totalAmount;
-        [NotMapped]
-        private int _totalValue;
 
         /// <summary>
         /// Mã hóa đơn.
@@ -39,7 +35,20 @@ namespace SaleManagement.Models
             get => _supplier; set
             {
                 _supplier = value;
-                SupplierID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
+                if (value != null) SupplierID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
+            }
+        }
+
+        public int StaffID { get; set; }
+        [NotMapped]
+        private Staff _staff;
+        [NotMapped]
+        public Staff Staff
+        {
+            get => _staff; set
+            {
+                _staff = value;
+                if (value != null) StaffID = value.ID;
             }
         }
 
@@ -47,19 +56,18 @@ namespace SaleManagement.Models
         /// Tổng giá trị hóa đơn bán.
         /// </summary>
         [Display(Name = "Tổng giá trị")]
-        public int TotalValue
-        {
-            get
-            {
-                int sum = 0;
-                foreach (var item in ImportBillDetails)
-                {
-                    sum += item.Price;
-                }
-                return sum;
-            }
-            private set { }
-        }
+        public int TotalValue { get; set; }
+
+        /// <summary>
+        /// Discount by entering coupon code.
+        /// </summary>
+        [Display(Name = "Lượng % giảm giá")]
+        public int DiscountValue { get; set; }
+
+        /// <summary>
+        /// Số tiền cửa hàng của mình đã trả cho Supplier.
+        /// </summary>
+        public int Payment { get; set; }
 
         /// <summary>
         /// Ngày tạo
@@ -67,11 +75,7 @@ namespace SaleManagement.Models
         [Display(Name = "Ngày tạo")]
         public DateTime DateCreated { get; set; }
 
-        /// <summary>
-        /// Discount by entering coupon code.
-        /// </summary>
-        [Display(Name = "Lượng % giảm giá")]
-        public int DiscountValue { get; set; }
+        
 
         /// <summary>
         /// Mã cửa hàng.
@@ -86,11 +90,28 @@ namespace SaleManagement.Models
             get => _store; set
             {
                 _store = value;
-                StoreID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
+                if (value != null) StoreID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
             }
         }
 
         [NotMapped]
         public virtual ICollection<ImportBillDetail> ImportBillDetails { get; set; }
+
+        public void RefreshTotalValue()
+        {
+            TotalValue = GetTotalValue();
+        }
+
+        public int GetTotalValue()
+        {
+            int sum = 0;
+            if (ImportBillDetails != null)
+                foreach (var item in ImportBillDetails)
+                {
+                    if (item != null) sum += item.Amount * item.Price;
+                    else ImportBillDetails.Remove(item);
+                }
+            return sum;
+        }
     }
 }

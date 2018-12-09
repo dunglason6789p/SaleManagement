@@ -1,4 +1,6 @@
-﻿using SaleManagement.Models;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using SaleManagement.Models;
 using SaleManagement.Models.DAL;
 using System;
 using System.Collections.Generic;
@@ -18,79 +20,39 @@ namespace SaleManagement.Controllers
             _context = new ApplicationDbContext();
         }
 
-        [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
 
-        /*
-        [HttpPost]
-        public ActionResult Create(Product product)
+        public JsonResult EditProduct_JSON(Product product)
         {
-            if (!ModelState.IsValid) //Nếu dữ liệu không hợp lệ
+            int id = CRUD.ProductCRUD.EditProduct(product);
+            return Json(new
             {
-                return View();
-            }
-
-            _context.Product.AddOrUpdate<Product>(m => m.ID, product);
-
-            return View(product);
-        }
-        */
-
-        [HttpGet]
-        public ActionResult Edit(int productID)
-        {
-            Product product = _context.Product.SingleOrDefault(m => m.ID == productID);
-            return View(product);
+                ID = id
+            });
         }
 
-        [HttpPost]
-        public ActionResult Edit(Product product)
+        public JsonResult CreateProduct_JSON(Product product)
         {
-            if (!ModelState.IsValid) //Nếu dữ liệu không hợp lệ
+            int id = CRUD.ProductCRUD.CreateProduct(product);
+            return Json(new
             {
-                return View();
-            }
-
-            _context.Product.AddOrUpdate<Product>(m => m.ID, product);
-
-            return View(product);
+                ID = id
+            });
         }
 
-        [HttpPost]
-        public ActionResult Create(string nullString)
-        {
-            Product product = new Product();
-
-            product.Code = Request["Code"];
-            product.Name = Request["Name"];
-            product.UnitName = Request["UnitName"];
-            product.RetailPrice = Int32.Parse(Request["RetailPrice"]);
-            product.WholesalePrice = Int32.Parse(Request["WholesalePrice"]);
-            product.WholesaleMinAmount = Int32.Parse(Request["WholesaleMinAmount"]);
-            product.AverageCost = Double.Parse(Request["AverageCost"]);
-            product.DiscountRate = Int32.Parse(Request["DiscountRate"]);
-            product.Description = Request["Description"];
-            product.Origin = Request["Origin"];
-            product.BrandName = Request["BrandName"];
-            product.Availability = Int32.Parse(Request["Availability"]);
-            product.DateCreated = DateTime.ParseExact(Request["DateCreated"].ToString(), "yyyy-MM-dd HH:mm:ss,fff", System.Globalization.CultureInfo.InvariantCulture);
-            product.Image = Request["Image"];
-            product.StoreID = Int32.Parse(Session["StoreID"].ToString());
-
-
-            string nextAction = Request["NextAction"];
-            switch(nextAction)
-            {
-                case "ShowResult":
-                    return View();
-                case "GoToProductList":
-                    return View();
-                default:
-                    return View();
-            }
+        public ActionResult SearchProduct_JSON(string code, string dateFrom, string dateTo, string brandName, string orderBy, int? pageToGo)
+        {            
+            string converted = JsonConvert.SerializeObject(
+                CRUD.ProductCRUD.GetProductList(this, code, dateFrom, dateTo, brandName, orderBy, pageToGo),
+                Formatting.None,
+                new IsoDateTimeConverter()
+                {
+                    DateTimeFormat = "yyyy-MM-dd"
+                });
+            return Content(converted, "application/json");
         }
 
         public JsonResult SearchByCode(string searchString)

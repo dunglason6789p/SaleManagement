@@ -46,12 +46,7 @@ namespace SaleManagement.Models
         /// Số hàng còn trong kho (cũng là số hàng có thể bán).
         /// </summary>
         public int Availability { get; set; }
-
-        /// <summary>
-        /// Lượng đã bán
-        /// </summary>
-        public int AmountSold { get; set; }
-
+        
         //Không kết nối tới bảng Category, lý do là để đơn giản hóa.
         public string CategoryName { get; set; }
 
@@ -92,7 +87,7 @@ namespace SaleManagement.Models
             get => _store; set
             {
                 _store = value;
-                StoreID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
+                if (value != null) StoreID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
             }
         }
     }

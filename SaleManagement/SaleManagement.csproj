@@ -51,6 +51,9 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
@@ -943,25 +946,40 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CRUD\ImportBillCRUD.cs" />
+    <Compile Include="Controllers\CRUD\ProductCRUD.cs" />
+    <Compile Include="Controllers\CRUD\SaleBillCRUD.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\DBCreating\DBCreateController.cs" />
+    <Compile Include="Controllers\DebugController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImportController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SaleBillController.cs" />
+    <Compile Include="Controllers\Session\SessionHelper.cs" />
+    <Compile Include="Controllers\Session\SessionKey.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
+    <Compile Include="Controllers\StatisticController.cs" />
+    <Compile Include="Controllers\Statistic\Entities.cs" />
+    <Compile Include="Controllers\Statistic\ImportStatistic.cs" />
+    <Compile Include="Controllers\Statistic\ProductStatistic.cs" />
+    <Compile Include="Controllers\Statistic\SaleStatistic.cs" />
     <Compile Include="Controllers\Utilities\EncryptionHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811300928131_MigModel6.cs" />
-    <Compile Include="Migrations\201811300928131_MigModel6.Designer.cs">
-      <DependentUpon>201811300928131_MigModel6.cs</DependentUpon>
+    <Compile Include="Migrations\201812090307473_MigModel2.cs" />
+    <Compile Include="Migrations\201812090307473_MigModel2.Designer.cs">
+      <DependentUpon>201812090307473_MigModel2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DAL\ApplicationDbContext.cs" />
+    <Compile Include="Models\History\ProductAvailabilityCheck.cs" />
     <Compile Include="Models\SaleBillDetail.cs" />
     <Compile Include="Models\ImportBillDetail.cs" />
     <Compile Include="Models\PaymentVoucher.cs" />
@@ -1234,6 +1252,8 @@
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\SaleBill\ViewTest.cshtml" />
     <Content Include="Views\SaleBill\Index.cshtml" />
+    <Content Include="Views\DBCreate\Index.cshtml" />
+    <Content Include="Views\Debug\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1244,10 +1264,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\ViewModels\" />
+    <Folder Include="Views\Import\" />
+    <Folder Include="Views\Statistic\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201811300928131_MigModel6.resx">
-      <DependentUpon>201811300928131_MigModel6.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812090307473_MigModel2.resx">
+      <DependentUpon>201812090307473_MigModel2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

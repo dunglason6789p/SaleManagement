@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using SaleManagement.Models;
 using SaleManagement.Models.DAL;
 using SaleManagement.Controllers.Utilities;
+using SaleManagement.Controllers.Session;
 
 namespace SaleManagement.Controllers
 {
@@ -24,14 +25,15 @@ namespace SaleManagement.Controllers
         public ActionResult Login(string username, string password, string role)
         {
             Debug.WriteLine(username + ":::" + password);
-            if (role == "Admin")
+            if (role == "Admin" || role == "admin")
             {
                 Admin admin = _context.Admin.SingleOrDefault(m => m.UserName == username);
                 if (admin != null) // Nếu tồn tại tài khoản.
                 {
                     string passwordHashed = EncryptionHelper.GetHash(password + admin.Salt); //Kiểm tra password.
-                    if (admin.PasswordEncrypted == passwordHashed)
+                    if (admin.PasswordEncrypted == passwordHashed) //Đăng nhập thành công !
                     {
+                        Session[SessionKey.UserName] = admin.UserName;
                         return View("~/Views/Home/Index.cshtml"); // Đưa về trang màn hình chính.
                     }
                     else

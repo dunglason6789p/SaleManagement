@@ -20,7 +20,7 @@ namespace SaleManagement.Models
             get => _staff; set
             {
                 _staff = value;
-                StaffID = value.ID;
+                if (value != null) StaffID = value.ID;
             }
         }
 
@@ -33,7 +33,7 @@ namespace SaleManagement.Models
             get => _customer; set
             {
                 _customer = value;
-                CustomerID = value.ID;
+                if (value != null) CustomerID = value.ID;
             }
         }
 
@@ -54,7 +54,7 @@ namespace SaleManagement.Models
             get => _store; set
             {
                 _store = value;
-                StoreID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
+                if (value != null) StoreID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
             }
         }
     }

@@ -207,6 +207,8 @@ D:\ptpmcn__\SaleManagement\bin\EntityFramework.dll
 D:\ptpmcn__\SaleManagement\bin\EntityFramework.SqlServer.dll
 D:\ptpmcn__\SaleManagement\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\ptpmcn__\SaleManagement\bin\Microsoft.Web.Infrastructure.dll
+D:\ptpmcn__\SaleManagement\bin\PagedList.dll
+D:\ptpmcn__\SaleManagement\bin\PagedList.Mvc.dll
 D:\ptpmcn__\SaleManagement\bin\System.Web.Helpers.dll
 D:\ptpmcn__\SaleManagement\bin\System.Web.Mvc.dll
 D:\ptpmcn__\SaleManagement\bin\System.Web.Razor.dll
@@ -215,6 +217,8 @@ D:\ptpmcn__\SaleManagement\bin\System.Web.Webpages.dll
 D:\ptpmcn__\SaleManagement\bin\System.Web.Webpages.Razor.dll
 D:\ptpmcn__\SaleManagement\bin\EntityFramework.xml
 D:\ptpmcn__\SaleManagement\bin\EntityFramework.SqlServer.xml
+D:\ptpmcn__\SaleManagement\bin\PagedList.xml
+D:\ptpmcn__\SaleManagement\bin\PagedList.Mvc.xml
 D:\ptpmcn__\SaleManagement\bin\System.Web.Razor.xml
 D:\ptpmcn__\SaleManagement\bin\System.Web.Webpages.xml
 D:\ptpmcn__\SaleManagement\bin\System.Web.Webpages.Deployment.xml
@@ -226,10 +230,9 @@ D:\ptpmcn__\SaleManagement\obj\Debug\SaleManagement.csproj.CoreCompileInputs.cac
 D:\ptpmcn__\SaleManagement\obj\Debug\SaleManagement.csproj.CopyComplete
 D:\ptpmcn__\SaleManagement\obj\Debug\SaleManagement.dll
 D:\ptpmcn__\SaleManagement\obj\Debug\SaleManagement.pdb
-D:\ptpmcn__\SaleManagement\obj\Debug\SaleManagement.Migrations.MigModel6.resources
-D:\ptpmcn__\SaleManagement\obj\Debug\SaleManagement.csproj.GenerateResource.cache
-D:\ptpmcn__\SaleManagement\bin\PagedList.dll
-D:\ptpmcn__\SaleManagement\bin\PagedList.Mvc.dll
-D:\ptpmcn__\SaleManagement\bin\PagedList.xml
-D:\ptpmcn__\SaleManagement\bin\PagedList.Mvc.xml
 D:\ptpmcn__\SaleManagement\obj\Debug\SaleManagement.csprojAssemblyReference.cache
+D:\ptpmcn__\SaleManagement\bin\Newtonsoft.Json.dll
+D:\ptpmcn__\SaleManagement\bin\Newtonsoft.Json.pdb
+D:\ptpmcn__\SaleManagement\bin\Newtonsoft.Json.xml
+D:\ptpmcn__\SaleManagement\obj\Debug\SaleManagement.Migrations.MigModel2.resources
+D:\ptpmcn__\SaleManagement\obj\Debug\SaleManagement.csproj.GenerateResource.cache

@@ -51,7 +51,7 @@ namespace SaleManagement.Models
             get => _store; set
             {
                 _store = value;
-                StoreID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
+                if (value != null) StoreID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
             }
         }
     }

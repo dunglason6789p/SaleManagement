@@ -26,7 +26,7 @@ namespace SaleManagement.Models
             get => _parentCategory; set
             {
                 _parentCategory = value;
-                ParentCategoryID = value.ID;
+                if (value != null) ParentCategoryID = value.ID;
             }
         }
 
@@ -46,7 +46,7 @@ namespace SaleManagement.Models
             get => _store; set
             {
                 _store = value;
-                StoreID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
+                if (value != null) StoreID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
             }
         }
     }

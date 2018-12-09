@@ -36,8 +36,15 @@ namespace SaleManagement.Models
             get => _store; set
             {
                 _store = value;
-                StoreID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
+                if (value != null) StoreID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
             }
         }
+
+        /// <summary>
+        /// Nếu &lt; 0 thì khách này đang nợ cửa hàng. Còn nếu &gt; 0 thì cửa hàng đang nợ khách này (!!OK), hoặc khách này đang có tiền thưởng trong tài khoản (?).
+        /// <para/>
+        /// Nhớ là customer.Money = saleBill.PaymentCash + saleBill.PaymentBank - saleBill.GetPaymentTotal()
+        /// </summary>
+        public int Money { get; set; }
     }
 }

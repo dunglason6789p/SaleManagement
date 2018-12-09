@@ -21,7 +21,7 @@ namespace SaleManagement.Models
             get => _saleBill; set
             {
                 _saleBill = value;
-                SaleBillID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
+                if (value != null) SaleBillID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
             }
         }
 
@@ -38,7 +38,7 @@ namespace SaleManagement.Models
             get => _product; set
             {
                 _product = value;
-                ProductID = value.ID;
+                if (value != null) ProductID = value.ID;
             }
         }
 
@@ -65,7 +65,7 @@ namespace SaleManagement.Models
             get => _store; set
             {
                 _store = value;
-                StoreID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
+                if (value != null) StoreID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
             }
         }
     }

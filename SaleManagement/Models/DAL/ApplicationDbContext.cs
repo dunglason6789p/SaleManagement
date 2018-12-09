@@ -5,6 +5,8 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
 
+using SaleManagement.Models.History;
+
 namespace SaleManagement.Models.DAL
 {
     public class ApplicationDbContext : DbContext
@@ -14,6 +16,7 @@ namespace SaleManagement.Models.DAL
 
         }
         public DbSet<Admin> Admin { get; set; }
+        public DbSet<Brand> Brand { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<Customer> Customer { get; set; }        
         public DbSet<ImportBill> ImportBill { get; set; }
@@ -26,6 +29,9 @@ namespace SaleManagement.Models.DAL
         public DbSet<Staff> Staff { get; set; }
         public DbSet<Store> Store { get; set; }
         public DbSet<Supplier> Supplier { get; set; }
+
+        //History.
+        public DbSet<ProductAvailabilityCheck> ProductAvailabilityCheck { get; set; }
         
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -46,5 +52,12 @@ namespace SaleManagement.Models.DAL
             });
             */
         }
+
+        /*
+        public void AddAndSaveChanges<T>(T objectX)
+        {
+            this.<T>.
+        }
+        */
     }
 }

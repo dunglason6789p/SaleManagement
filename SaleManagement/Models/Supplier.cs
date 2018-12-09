@@ -21,7 +21,7 @@ namespace SaleManagement.Models
         public string Description { get; set; }
 
         /// <summary>
-        /// Mã cửa hàng.
+        /// Phải có storeID là vì ta còn tính nợ cho supplier !
         /// </summary>
         public int StoreID { get; set; }
         private Store _store;
@@ -31,8 +31,13 @@ namespace SaleManagement.Models
             get => _store; set
             {
                 _store = value;
-                StoreID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
+                if (value != null) StoreID = value.ID; //Để cho khi gán object thì gán luôn cả ID (khóa ngoại).
             }
         }
+
+        /// <summary>
+        /// Nếu &lt; 0 thì cửa hàng của ta đang nợ nhà cung cấp này. Nhớ là supplier.Money == importBill.Payment - importBill.TotalValue
+        /// </summary>
+        public int Money { get; set; }
     }
 }
