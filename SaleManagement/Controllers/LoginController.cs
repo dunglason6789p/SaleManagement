@@ -18,13 +18,12 @@ namespace SaleManagement.Controllers
         [HttpGet]
         public ActionResult Login()
         {
-            return View("~/Views/DangNhap/DangNhap.cshtml");
+            return View("~/Views/admin_1_rounded/page_user_login_1.cshtml");
         }
 
         [HttpPost]
         public ActionResult Login(string username, string password, string role)
         {
-            Debug.WriteLine(username + ":::" + password);
             if (role == "Admin" || role == "admin")
             {
                 Admin admin = _context.Admin.SingleOrDefault(m => m.UserName == username);
@@ -34,18 +33,18 @@ namespace SaleManagement.Controllers
                     if (admin.PasswordEncrypted == passwordHashed) //Đăng nhập thành công !
                     {
                         Session[SessionKey.UserName] = admin.UserName;
-                        return View("~/Views/Home/Index.cshtml"); // Đưa về trang màn hình chính.
+                        return View("~/Views/admin_1_rounded/dashboard_2.cshtml"); // Đưa về trang màn hình chính.
                     }
                     else
                     {
-                        ViewBag.Result = "WrongPassword";
-                        return View("~/Views/Login/Login.cshtml");
+                        ViewBag.Result = "Wrong Password";
+                        return View("~/Views/admin_1_rounded/page_user_login_1.cshtml");
                     }
                 }
                 else
                 {
-                    ViewBag.Result = "UserNameNotExists";
-                    return View("~/Views/Login/Login.cshtml");
+                    ViewBag.Result = "UserName Not Exists";
+                    return View("~/Views/admin_1_rounded/page_user_login_1.cshtml");
                 }
             }
             else
@@ -56,23 +55,20 @@ namespace SaleManagement.Controllers
                     string passwordHashed = EncryptionHelper.GetHash(password + staff.Salt); //Kiểm tra password.
                     if (staff.PasswordEncrypted == passwordHashed)
                     {
-                        return View("~/Views/Home/Index.cshtml"); // Đưa về trang màn hình chính.
+                        return View("~/Views/admin_1_rounded/dashboard_2.cshtml"); // Đưa về trang màn hình chính.
                     }
                     else
                     {
-                        ViewBag.Result = "WrongPassword";
-                        return View("~/Views/Login/Login.cshtml");
+                        ViewBag.Result = "Wrong Password";
+                        return View("~/Views/admin_1_rounded/page_user_login_1.cshtml");
                     }
                 }
                 else
                 {
-                    ViewBag.Result = "UserNameNotExists";
-                    return View("~/Views/Login/Login.cshtml");
+                    ViewBag.Result = "UserName Not Exists";
+                    return View("~/Views/admin_1_rounded/page_user_login_1.cshtml");
                 }
             }
         }
-
-
-
     }
 }

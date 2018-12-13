@@ -14,7 +14,7 @@ namespace SaleManagement.Controllers
         // GET: Statistic
         public ActionResult Index()
         {
-            return View();
+            return View("~/Views/admin_1_rounded/dashboard_2.cshtml");
         }
 
         

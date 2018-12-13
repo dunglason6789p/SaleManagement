@@ -22,7 +22,7 @@ namespace SaleManagement.Controllers.DBCreating
             string salt = EncryptionHelper.GetSalt();
             GlobalHelper_.context.Admin.Add(new Models.Admin()
             {
-                UserName = "ntson",
+                UserName = "admin",
                 PasswordEncrypted = EncryptionHelper.GetHash("123"+ salt),
                 Salt = salt,
                 Status = 0,

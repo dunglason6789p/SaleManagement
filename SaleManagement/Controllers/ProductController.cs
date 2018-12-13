@@ -20,9 +20,30 @@ namespace SaleManagement.Controllers
             _context = new ApplicationDbContext();
         }
 
+        public ActionResult ViewDetail(int ID)
+        {
+            Product product = _context.Product.SingleOrDefault(m => m.ID == ID);
+            return View("~/Views/admin_1_rounded/ecommerce_products_edit.cshtml", product);
+        }
         public ActionResult Create()
         {
-            return View();
+            return View("~/Views/admin_1_rounded/ecommerce_products.cshtml");
+        }
+
+        public ActionResult CreateOrUpdate(int ID, String Code, String Name, String UnitName, int RetailPrice, int WholesalePrice, int WholesaleMinAmount, double AverageCost, int DiscountRate,
+            int Availability, String CategoryName, String Origin, String BrandName, String DateCreated, int Status, )
+        {
+            Product product = _context.Product.SingleOrDefault(m => m.ID == ID);
+            if (product != null)
+            {
+                // Đoạn này là create đúng k
+                return View()
+            }
+            else
+            {
+                // trong này là update chuẩn kx`
+                return View();
+            }
         }
 
         public JsonResult EditProduct_JSON(Product product)
@@ -44,7 +65,7 @@ namespace SaleManagement.Controllers
         }
 
         public ActionResult SearchProduct_JSON(string code, string dateFrom, string dateTo, string brandName, string orderBy, int? pageToGo)
-        {            
+        {
             string converted = JsonConvert.SerializeObject(
                 CRUD.ProductCRUD.GetProductList(this, code, dateFrom, dateTo, brandName, orderBy, pageToGo),
                 Formatting.None,
