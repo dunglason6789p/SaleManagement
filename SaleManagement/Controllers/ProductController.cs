@@ -4,9 +4,7 @@ using SaleManagement.Models;
 using SaleManagement.Models.DAL;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace SaleManagement.Controllers
@@ -25,24 +23,83 @@ namespace SaleManagement.Controllers
             Product product = _context.Product.SingleOrDefault(m => m.ID == ID);
             return View("~/Views/admin_1_rounded/ecommerce_products_edit.cshtml", product);
         }
+        public ActionResult CreateNew()
+        {
+            Product product = new Product();
+            return View("~/Views/admin_1_rounded/ecommerce_products_edit.cshtml", product);
+        }
         public ActionResult Create()
         {
             return View("~/Views/admin_1_rounded/ecommerce_products.cshtml");
         }
 
-        public ActionResult CreateOrUpdate(int ID, String Code, String Name, String UnitName, int RetailPrice, int WholesalePrice, int WholesaleMinAmount, double AverageCost, int DiscountRate,
-            int Availability, String CategoryName, String Origin, String BrandName, String DateCreated, int Status, )
+        public ActionResult Delete(int ID)
         {
+            return View();
+        }
+
+        public ActionResult CreateOrUpdate(int ID, String Code, String Name, String UnitName, int RetailPrice, int WholesalePrice, int WholesaleMinAmount, double AverageCost, int DiscountRate,
+            int Availability, String CategoryName, String Origin, String BrandName, String DateCreated, int Status, String Image,
+            String Description, int StoreID, String type)
+        {
+            DateTime dateTime = DateTime.Parse(DateCreated);
             Product product = _context.Product.SingleOrDefault(m => m.ID == ID);
             if (product != null)
             {
-                // Đoạn này là create đúng k
-                return View()
-            }
-            else
+                product.ID = ID;
+                product.Code = Code;
+                product.Name = Name;
+                product.UnitName = UnitName;
+                product.RetailPrice = RetailPrice;
+                product.WholesalePrice = WholesalePrice;
+                product.WholesaleMinAmount = WholesaleMinAmount;
+                product.AverageCost = AverageCost;
+                product.DiscountRate = DiscountRate;
+                product.Availability = Availability;
+                product.CategoryName = CategoryName;
+                product.Origin = Origin;
+                product.BrandName = BrandName;
+                product.DateCreated = dateTime;
+                product.Image = Image;
+                product.Description = Description;
+                product.StoreID = StoreID;
+                int id = CRUD.ProductCRUD.EditProduct(product);
+                if (type == "continue")
+                {
+                    return CreateNew();
+                }
+                else
+                {
+                    return View("~/Views/admin_1_rounded/ecommerce_products.cshtml");
+                }
+            } else
             {
-                // trong này là update chuẩn kx`
-                return View();
+                product = new Product();
+                product.ID = ID;
+                product.Code = Code;
+                product.Name = Name;
+                product.UnitName = UnitName;
+                product.RetailPrice = RetailPrice;
+                product.WholesalePrice = WholesalePrice;
+                product.WholesaleMinAmount = WholesaleMinAmount;
+                product.AverageCost = AverageCost;
+                product.DiscountRate = DiscountRate;
+                product.Availability = Availability;
+                product.CategoryName = CategoryName;
+                product.Origin = Origin;
+                product.BrandName = BrandName;
+                product.DateCreated = dateTime;
+                product.Image = Image;
+                product.Description = Description;
+                product.StoreID = StoreID;
+                int id = CRUD.ProductCRUD.CreateProduct(product);
+                if (type == "continue")
+                {
+                    return CreateNew();
+                } else
+                {
+                    return View("~/Views/admin_1_rounded/ecommerce_products.cshtml");
+                }
             }
         }
 

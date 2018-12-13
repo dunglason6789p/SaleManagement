@@ -43,10 +43,12 @@
         function back() {
             window.location.href = "/Product/Create";
         }
-        function save() {
-
-        }
         function saveAndContinue() {
+            var type = document.getElementById("type");
+            type.value = "continue";
+            document.getElementById("form-data").submit();
+        }
+        function deleteProduct() {
 
         }
     </script>
@@ -486,18 +488,18 @@
                     </div>
                     <!-- END PAGE BAR -->
                     <!-- BEGIN PAGE TITLE-->
-                    <h1 class="page-title"> eCommerce Products Edit
-                        <small>edit product</small>
+                    <h1 class="page-title"> eCommerce Products
+                        <small>add/edit product</small>
                     </h1>
                     <!-- END PAGE TITLE-->
                     <!-- END PAGE HEADER-->
                     <div class="row">
                         <div class="col-md-12">
-                            <form class="form-horizontal form-row-seperated" name="form-data">
+                            <form class="form-horizontal form-row-seperated" id="form-data" action="/Product/CreateOrUpdate" method="post">
                                 <div class="portlet">
                                     <div class="portlet-title">
                                         <div class="caption">
-                                            <i class="fa fa-shopping-cart"></i>Test Product </div>
+                                            <i class="fa fa-shopping-cart"></i> Product </div>
                                         <div class="actions btn-set">
                                             <input type="button" class="btn btn-secondary-outline" onclick="back()" value="Back" />
                                             <!--<button class="btn btn-secondary-outline" onclick="back()">
@@ -508,25 +510,9 @@
                                             <button class="btn btn-success" onclick="save()">
                                                 <i class="fa fa-check"></i> Save
                                             </button>
-                                            <button class="btn btn-success">
-                                                <i class="fa fa-check-circle" onclick="saveAndContinue()"></i> Save & Continue Edit
-                                            </button>
-                                            <div class="btn-group">
-                                                <a class="btn btn-success dropdown-toggle" href="javascript:;"
-                                                   data-toggle="dropdown">
-                                                    <i class="fa fa-share"></i> More
-                                                    <i class="fa fa-angle-down"></i>
-                                                </a>
-                                                <div class="dropdown-menu pull-right">
-                                                    <li>
-                                                        <a href="javascript:;"> Delete </a>
-                                                    </li>
-                                                    <li class="dropdown-divider"> </li>
-                                                    <li>
-                                                        <a href="javascript:;"> Print </a>
-                                                    </li>
-                                                </div>
-                                            </div>
+                                            <input type="button" class="btn btn-success" onclick="saveAndContinue()" value=" Save & Continue " />
+                                            <input type="button" class="btn btn-danger" onclick="deleteProduct()" value="Delete" />
+                                            
                                         </div>
                                     </div>
                                     <div class="portlet-body">
@@ -788,7 +774,11 @@
                                                                     </div>
                                                                 </td>
                                                             </tr>
+                                                            
                                                         </table>
+                                                        <input type="hidden" value="@Model.ID" name="ID" />
+                                                        <input type="hidden" value="@Model.Image" name="Image" />
+                                                        <input type="hidden" value="" name="type" id="type" />
                                                     </div>
                                                 </div>
                                             </div>
