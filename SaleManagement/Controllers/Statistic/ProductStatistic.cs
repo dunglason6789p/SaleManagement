@@ -17,9 +17,5 @@ namespace SaleManagement.Controllers.Statistic
         }
     }
 
-    public class ProductAvailabilityHistory
-    {
-        public DateTime Date { get; set; }
-        public int Amount { get; set; }
-    }
+
 }

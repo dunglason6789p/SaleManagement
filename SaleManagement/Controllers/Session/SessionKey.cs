@@ -8,6 +8,7 @@ namespace SaleManagement.Controllers.Session
     public static class SessionKey //Map magic-string to lintable names.
     {
         public const String UserName = "UserName";
+        public const String StoreID = "StoreID";
 
         public const String SaleBillStatistic_OrderBy = "SaleBillStatistic_OrderBy";
         public const String ImportBillStatistic_OrderBy = "ImportBillStatistic_OrderBy";
