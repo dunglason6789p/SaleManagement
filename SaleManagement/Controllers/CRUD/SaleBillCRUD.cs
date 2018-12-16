@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using System.Web.Mvc;
 
 using SaleManagement.Controllers.Session;
 using PagedList;
@@ -15,7 +16,7 @@ namespace SaleManagement.Controllers.CRUD
     {
         public static ApplicationDbContext _context = new ApplicationDbContext();
 
-        public static List<SaleBill> GetSaleBillList(StatisticController controller, string code, string dateFrom, string dateTo, string customerID, string orderBy, int? pageToGo)
+        public static List<SaleBill> GetSaleBillList(Controller controller, string code, string dateFrom, string dateTo, string customerID, string orderBy, int? pageSize, int? pageToGo)
         {
             int storeID = Int32.Parse(controller.GetSession("StoreID").ToString());
             IQueryable<SaleBill> saleBills = _context.SaleBill.Where(m => m.StoreID == storeID);
@@ -86,11 +87,11 @@ namespace SaleManagement.Controllers.CRUD
             }
 
             #region
-            int pageSize = 1000;
+            if (pageSize==null) pageSize = 1000;
             if (pageToGo == null) pageToGo = 1;
             #endregion
 
-            List<SaleBill> saleBillsList = saleBills.ToPagedList(pageToGo.Value, pageSize).ToList();
+            List<SaleBill> saleBillsList = saleBills.ToPagedList(pageToGo.Value, pageSize.Value).ToList();
             foreach (var item in saleBillsList)
             {
                 item.Customer = _context.Customer.SingleOrDefault(m => m.ID == item.CustomerID);
