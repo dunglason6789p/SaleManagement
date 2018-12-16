@@ -539,11 +539,10 @@
                                                     </th>
                                                     <th width="5%"> Order&nbsp;# </th>
                                                     <th width="15%"> Purchased&nbsp;On </th>
-                                                    <th width="15%"> Customer </th>
-                                                    <th width="10%"> Ship&nbsp;To </th>
+                                                    <th width="15%"> Staff </th>
+                                                    <th width="10%"> Customer </th>
                                                     <th width="10%"> Base&nbsp;Price </th>
-                                                    <th width="10%"> Purchased&nbsp;Price </th>
-                                                    <th width="10%"> Status </th>
+                                                    <th width="10%"> Discount </th>
                                                     <th width="10%"> Actions </th>
                                                 </tr>
                                                 <tr role="row" class="filter">
@@ -595,25 +594,14 @@
                                                             name="order_purchase_price_to" placeholder="To" />
                                                     </td>
                                                     <td>
-                                                        <select name="order_status" class="form-control form-filter input-sm">
-                                                            <option value="">Select...</option>
-                                                            <option value="pending">Pending</option>
-                                                            <option value="closed">Closed</option>
-                                                            <option value="hold">On Hold</option>
-                                                            <option value="fraud">Fraud</option>
-                                                        </select>
-                                                    </td>
-                                                    <td>
                                                         <div class="margin-bottom-5">
                                                             <button class="btn btn-sm btn-success filter-submit margin-bottom">
                                                                 <i class="fa fa-search"></i> Search</button>
                                                         </div>
-                                                        <button class="btn btn-sm btn-default filter-cancel">
-                                                            <i class="fa fa-times"></i> Reset</button>
                                                     </td>
                                                 </tr>
                                             </thead>
-                                            <tbody> </tbody>
+                                            <tbody id="table-body"></tbody>
                                         </table>
                                     </div>
                                 </div>

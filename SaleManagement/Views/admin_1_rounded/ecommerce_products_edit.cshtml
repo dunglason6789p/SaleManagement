@@ -49,7 +49,8 @@
             document.getElementById("form-data").submit();
         }
         function deleteProduct() {
-
+            document.getElementById("Status").value = 1;
+            document.getElementById("form-data").submit();
         }
     </script>
 </head>
@@ -727,8 +728,18 @@
                                                                             <span class="required"> * </span>
                                                                         </label>
                                                                         <div class="col-md-8">
-                                                                            <input type="text" class="form-control" name="Status"
-                                                                                   placeholder="Status..." value="@Model.Status">
+                                                                            <select class="form-control" name="Status" id="Status">
+                                                                                @if (Model.Status == 0)
+                                                                                {
+                                                                                    <option value="0" selected>Sẵn sàng</option>
+                                                                                    <option value="1">Đã xóa</option>
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    <option value="0">Sẵn sàng</option>
+                                                                                    <option value="1" selected>Đã xóa</option>
+                                                                                }
+                                                                            </select>
                                                                         </div>
                                                                     </div>
                                                                 </td>

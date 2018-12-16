@@ -4,6 +4,7 @@ using SaleManagement.Models;
 using SaleManagement.Models.DAL;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -60,6 +61,7 @@ namespace SaleManagement.Controllers
                 product.Origin = Origin;
                 product.BrandName = BrandName;
                 product.DateCreated = dateTime;
+                product.Status = Status;
                 product.Image = Image;
                 product.Description = Description;
                 product.StoreID = StoreID;

@@ -45,6 +45,7 @@
                     var tbody = document.getElementById("datatable_products_tbody");
                     var value = "";
                     for (var i = 0; i < result.length; i++) {
+                        if (result[i]["Status"] == 1) continue;
                         value += "<tr>";
                         value += '<td>';
                         value += '  <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">';
@@ -58,7 +59,7 @@
                         value += "<td>" + result[i]['RetailPrice'] + "</td>";
                         value += "<td>" + result[i]['Availability'] + "</td>";
                         value += "<td>" + result[i]['DateCreated'] + "</td>";
-                        value += "<td>";
+                        value += "<td>"
                         value += '  <div class="margin-bottom-5">';
                         value += '      <button class="btn btn-sm btn-success filter-submit margin-bottom" ';
                         value += ' onclick="viewDetail(' + result[i]['ID']+')">';
@@ -549,32 +550,6 @@
                                             <i class="fa fa-plus"></i>
                                             <span class="hidden-xs"> New Product </span>
                                         </a>
-                                        <a href="javascript:;" class="btn btn-circle btn-info">
-                                            <i class="fa fa-plus"></i>
-                                            <span class="hidden-xs"> New Order </span>
-                                        </a>
-                                        <div class="btn-group">
-                                            <a class="btn btn-circle btn-default dropdown-toggle" href="javascript:;"
-                                               data-toggle="dropdown">
-                                                <i class="fa fa-share"></i>
-                                                <span class="hidden-xs"> Tools </span>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <div class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;"> Export to Excel </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;"> Export to CSV </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;"> Export to XML </a>
-                                                </li>
-                                                <li class="divider"></li>
-                                                <a href="javascript:;"> Print Invoices </a>
-                                                </li>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="portlet-body">
