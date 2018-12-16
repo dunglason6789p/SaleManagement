@@ -516,10 +516,9 @@ C:\SonNguyen_\SaleManagement\SaleManagement\bin\System.Web.Webpages.Razor.xml
 C:\SonNguyen_\SaleManagement\SaleManagement\bin\System.Web.Helpers.xml
 C:\SonNguyen_\SaleManagement\SaleManagement\bin\System.Web.Mvc.xml
 C:\SonNguyen_\SaleManagement\SaleManagement\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\SonNguyen_\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csprojAssemblyReference.cache
-C:\SonNguyen_\SaleManagement\SaleManagement\obj\Debug\SaleManagement.Migrations.MigModel2.resources
-C:\SonNguyen_\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.GenerateResource.cache
 C:\SonNguyen_\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.CoreCompileInputs.cache
 C:\SonNguyen_\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.CopyComplete
 C:\SonNguyen_\SaleManagement\SaleManagement\obj\Debug\SaleManagement.dll
 C:\SonNguyen_\SaleManagement\SaleManagement\obj\Debug\SaleManagement.pdb
+C:\SonNguyen_\SaleManagement\SaleManagement\obj\Debug\SaleManagement.Migrations.MigModel1.resources
+C:\SonNguyen_\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.GenerateResource.cache

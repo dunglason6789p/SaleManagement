@@ -535,6 +535,7 @@ namespace SaleManagement.Controllers.DBCreating
 
             saleBill.DateCreated = date;
             saleBill.CustomerID = CustomerHelper_.customers[GlobalHelper_.randomizer.Next(CustomerHelper_.customers.Count)].ID;
+            saleBill.StaffID = StaffHelper_.staffs[GlobalHelper_.randomizer.Next(StaffHelper_.staffs.Count)].ID;
             saleBill.DiscountValue = 0;
             saleBill.StoreID = GlobalHelper_.CURRENT_STORE_ID;
             saleBill.RefreshTotalValue(); //REFRESH.

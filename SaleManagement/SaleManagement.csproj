@@ -980,9 +980,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201812090307473_MigModel2.cs" />
-    <Compile Include="Migrations\201812090307473_MigModel2.Designer.cs">
-      <DependentUpon>201812090307473_MigModel2.cs</DependentUpon>
+    <Compile Include="Migrations\201812161618149_MigModel1.cs" />
+    <Compile Include="Migrations\201812161618149_MigModel1.Designer.cs">
+      <DependentUpon>201812161618149_MigModel1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -1282,8 +1282,8 @@
     <Folder Include="Views\Statistic\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812090307473_MigModel2.resx">
-      <DependentUpon>201812090307473_MigModel2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812161618149_MigModel1.resx">
+      <DependentUpon>201812161618149_MigModel1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

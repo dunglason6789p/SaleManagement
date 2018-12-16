@@ -57,11 +57,11 @@ namespace SaleManagement.Controllers.CRUD
             }
             if (!String.IsNullOrEmpty(customerName))
             {
-                saleBills = saleBills.Where(m => m.Customer.FullName.Contains(customerName));
+                saleBills = saleBills.Where(m => m.CustomerName.Contains(customerName));
             }
             if (!String.IsNullOrEmpty(staffName))
             {
-                saleBills = saleBills.Where(m => m.Staff.FullName.Contains(staffName));
+                saleBills = saleBills.Where(m => m.StaffName.Contains(staffName));
             }
             if (totalValueFrom != null)
             {
@@ -134,11 +134,7 @@ namespace SaleManagement.Controllers.CRUD
             if (pageToGo == null) pageToGo = 1;
 
             List<SaleBillExtended> saleBillsList = saleBills.ToPagedList(pageToGo.Value, pageSize.Value).ToList();
-            foreach (var item in saleBillsList)
-            {
-                item.Customer = _context.Customer.SingleOrDefault(m => m.ID == item.CustomerID);
-                item.Staff = _context.Staff.SingleOrDefault(m => m.ID == item.StaffID);
-            }
+            //List<SaleBillExtended> saleBillsList = saleBills.ToList(); //DEBUG
 
             return saleBillsList;
         }
@@ -200,12 +196,12 @@ namespace SaleManagement.Controllers.CRUD
                     case "TotalValue":
                         if (controller.GetSession(SessionKey.SaleBill_OrderBy) == "TotalValue")
                         {
-                            saleBills = _context.SaleBill.Include(m => m.SaleBillDetails).OrderByDescending(m => m.TotalValue);
+                            saleBills = _context.SaleBill.OrderByDescending(m => m.TotalValue);
                             controller.SetSession(SessionKey.SaleBill_OrderBy, "TotalValue_Desc");
                         }
                         else
                         {
-                            saleBills = _context.SaleBill.Include(m => m.SaleBillDetails).OrderBy(m => m.TotalValue);
+                            saleBills = _context.SaleBill.OrderBy(m => m.TotalValue);
                             controller.SetSession(SessionKey.SaleBill_OrderBy, "TotalValue");
                         }
                         break;
