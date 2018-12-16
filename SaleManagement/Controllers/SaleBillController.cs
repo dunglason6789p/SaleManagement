@@ -7,6 +7,10 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using PagedList;
+using SaleManagement.Controllers.CRUD;
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace SaleManagement.Controllers
 {
@@ -41,97 +45,32 @@ namespace SaleManagement.Controllers
             return View();
         }
 
-        public ActionResult IndexWORKING(string code, string dateFrom, string dateTo, string customerID, string previousOrderBy, string orderBy, int? pageToGo)
+        //JSON.
+        /// <summary>
+        /// Tìm kiếm hóa đơn bán.
+        /// </summary>
+        /// <param name="code">Mã hóa đơn</param>
+        /// <param name="dateFrom">Lọc các hóa đơn sau ngày này.</param>
+        /// <param name="dateTo">Lọc các hóa đơn trước ngày này.</param>
+        /// <param name="customerID">Mã khách hàng</param>
+        /// <param name="orderBy">Tiêu chí sắp xếp ("Code"=theo mã hóa đơn, "DateFrom"=theo ngày, "TotalValue"=theo giá trị hóa đơn.)</param>
+        /// <param name="pageSize">Số kết quả tìm kiếm trong 1 trang</param>
+        /// <param name="pageToGo">Trang muốn đến.</param>
+        /// <returns></returns>
+        public ActionResult SearchSaleBill(string code, string dateFrom, string dateTo, string customerID, string orderBy, int? pageSize, int? pageToGo)
         {
-            int storeID = Int32.Parse(Session["StoreID"].ToString());
-            IQueryable<SaleBill> saleBills = _context.SaleBill.Where(m => m.StoreID == storeID);
-            if (!String.IsNullOrEmpty(code))
-            {
-                saleBills = saleBills.Where(m => m.Code.ToLower().Contains(code));
-            }
-            if (!String.IsNullOrEmpty(dateFrom))
-            {
-                DateTime dateFrom_converted = DateTime.ParseExact(dateFrom, "yyyy-MM-dd HH:mm:ss,fff",
-                                       System.Globalization.CultureInfo.InvariantCulture);
-                saleBills = saleBills.Where(m => m.DateCreated >= dateFrom_converted);
-            }
-            if (!String.IsNullOrEmpty(dateTo))
-            {
-                DateTime dateTo_converted = DateTime.ParseExact(dateTo, "yyyy-MM-dd HH:mm:ss,fff",
-                                       System.Globalization.CultureInfo.InvariantCulture);
-                saleBills = saleBills.Where(m => m.DateCreated >= dateTo_converted);
-            }
-            if (!String.IsNullOrEmpty(customerID))
-            {
-                int customID_converted = Int32.Parse(customerID);
-                saleBills = saleBills.Where(m => m.CustomerID == customID_converted);
-            }
-            else
-            {
-                switch(orderBy)
+            string converted = JsonConvert.SerializeObject(
+                SaleBillCRUD.GetSaleBillList(this, code, dateFrom, dateTo, customerID, orderBy, pageSize, pageToGo),
+                Formatting.None,
+                new IsoDateTimeConverter()
                 {
-                    case "Code":
-                        if (previousOrderBy == "Code")
-                        {
-                            saleBills = saleBills.OrderByDescending(m => m.Code);
-                        } 
-                        else
-                        {
-                            saleBills = saleBills.OrderBy(m => m.Code);
-                        }
-                        break;
-                    case "DateCreated":
-                        if (previousOrderBy == "DateCreated")
-                        {
-                            saleBills = saleBills.OrderByDescending(m => m.DateCreated);
-                        }
-                        else
-                        {
-                            saleBills = saleBills.OrderBy(m => m.DateCreated);
-                        }
-                        break;
-                    case "TotalValue":
-                        if (previousOrderBy == "TotalValue")
-                        {
-                            saleBills = _context.SaleBill.Include(m => m.SaleBillDetails).OrderByDescending(m => m.TotalValue);
-                        }
-                        else
-                        {
-                            saleBills = _context.SaleBill.Include(m => m.SaleBillDetails).OrderBy(m => m.TotalValue);
-                        }
-                        break;
-                    default:
-                        saleBills = saleBills.OrderByDescending(m => m.DateCreated);
-                        break;
-                }
-            }
-
-            //Đặt kích thước page và xử lý trường hợp pageToGo == null.
-            #region
-            int pageSize = 10;
-            if (pageToGo == null) pageToGo = 1;
-            #endregion
-
-            //string code, string dateFrom, string dateTo, string customerID, string previousOrderBy, string orderBy, int? pageToGo
-            ViewBag.Code = code;
-            ViewBag.DateForm = dateFrom;
-            ViewBag.DateTo = dateTo;
-            ViewBag.CustomerID = customerID;
-            ViewBag.PreviousOrderBy = previousOrderBy;
-            ViewBag.OrderBy = orderBy;
-            ViewBag.PageToGo = pageToGo;
-
-            List<SaleBill> saleBillsList = saleBills.ToPagedList(pageToGo.Value, pageSize).ToList();
-            foreach(var item in saleBillsList)
-            {
-                item.Customer = _context.Customer.SingleOrDefault(m => m.ID == item.CustomerID);
-                item.Staff = _context.Staff.SingleOrDefault(m => m.ID == item.StaffID);
-            }
-
-            return View("~/Views/TraCuuHocPhan/TimKiem.cshtml", null, saleBillsList);
+                    DateTimeFormat = "yyyy-MM-dd"
+                });
+            return Content(converted, "application/json");
         }
 
-        public JsonResult CreateSaleBill(SaleBill saleBill)
+        //JSON.
+        public ActionResult CreateSaleBill(SaleBill saleBill)
         {
             int id = CRUD.SaleBillCRUD.CreateSaleBill(saleBill);
             return Json(new {
