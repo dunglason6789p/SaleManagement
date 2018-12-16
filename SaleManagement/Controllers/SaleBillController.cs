@@ -22,7 +22,7 @@ namespace SaleManagement.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            return View("~/Views/admin_1_rounded/ecommerce_orders.cshtml");
         }
 
         [HttpPost]
