@@ -9,6 +9,7 @@ using System.Data.Entity;
 using SaleManagement.Controllers.Session;
 using PagedList;
 using System.Globalization;
+using System.Web.Mvc;
 
 namespace SaleManagement.Controllers.Statistic
 {
@@ -78,7 +79,7 @@ namespace SaleManagement.Controllers.Statistic
                 from saleBillDetail in _context.SaleBillDetail
                 select saleBillDetail
                 );
-            
+
             if (dateFrom != null)
             {
                 saleBillDetails = (from saleBillDetail in saleBillDetails
@@ -96,7 +97,7 @@ namespace SaleManagement.Controllers.Statistic
                                    select saleBillDetail
                                    );
             }
-            
+
             var productID_and_sumSaleAmount_query = (from saleBillDetail in saleBillDetails
                                                      group saleBillDetail by saleBillDetail.ProductID into saleBillDetail_groupBy_productID
                                                      select new
@@ -104,7 +105,7 @@ namespace SaleManagement.Controllers.Statistic
                                                          ProductID = saleBillDetail_groupBy_productID.Key,
                                                          Sum = saleBillDetail_groupBy_productID.Sum(m => m.Amount),
                                                      }
-                );      
+                );
 
             var saleHistory = (
                 from productID_and_sumSaleAmount in productID_and_sumSaleAmount_query
@@ -155,10 +156,10 @@ namespace SaleManagement.Controllers.Statistic
                                                      }
                 );
 
-            var xxxx = (                
+            var xxxx = (
                 from product in _context.Product
                 from productID_and_sumSaleAmount in productID_and_sumSaleAmount_query
-                     .Where(productID_and_sumSaleAmount => productID_and_sumSaleAmount.ProductID == product.ID )
+                     .Where(productID_and_sumSaleAmount => productID_and_sumSaleAmount.ProductID == product.ID)
                      .DefaultIfEmpty()
                 select new Product_Amount()
                 {
@@ -171,23 +172,69 @@ namespace SaleManagement.Controllers.Statistic
 
             return xxxx.ToList();
         }
+
+        /// <summary>
+        /// Trả ra tổng giá trị hóa đơn bán hàng trong 1 tháng xác định.
+        /// </summary>
+        /// <param name="storeID"></param>
+        /// <param name="month"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        public static int GetTotalSaleValueCertainMonth(int storeID, int month, int year)
+        {
+            DateTime startTime = new DateTime(year, month, 1);
+            DateTime endTime = new DateTime(year, month, DateTime.DaysInMonth(year, month));
+
+            var saleBillQuery = (
+                from saleBill in _context.SaleBill
+                where saleBill.DateCreated >= startTime && saleBill.DateCreated <= endTime
+                select saleBill
+                );
+
+            int sum = saleBillQuery.Sum(m => m.TotalValue);
+
+            return sum;
+        }
+
+        /// <summary>
+        /// Trả ra một danh sách các object, mỗi object chứa số hiệu tháng (int) , số hiệu năm (int) , tổng giá trị hóa đơn bán trong tháng đó.
+        /// </summary>
+        /// <param name="controller"></param>
+        /// <param name="startMonth"></param>
+        /// <param name="startYear"></param>
+        /// <param name="endMonth"></param>
+        /// <param name="endYear"></param>
+        /// <returns></returns>
+        public static List<MonthYear_Amount> GetTotalSaleValueInMonths(Controller controller, int startMonth, int startYear, int endMonth, int endYear)
+        {
+            int storeID = Int32.Parse(controller.GetSession(Session.SessionKey.StoreID));
+
+            DateTime startDate = new DateTime(startYear, startMonth, 1);
+            DateTime endDate = new DateTime(endYear, endMonth, DateTime.DaysInMonth(endYear, endMonth));
+
+            DateTime iterator = startDate;
+            List<DateTime> monthsToConsider = new List<DateTime>();
+            while (true)
+            {
+                if (iterator > endDate) break;
+                monthsToConsider.Add(iterator);
+                iterator = iterator.AddMonths(1);
+            }
+
+            List<MonthYear_Amount> stats = new List<MonthYear_Amount>();
+            foreach (DateTime month in monthsToConsider)
+            {
+                stats.Add(new MonthYear_Amount()
+                {
+                    Month = month.Month,
+                    Year = month.Year,
+                    Amount = GetTotalSaleValueCertainMonth(storeID, month.Month, month.Year),
+                });
+            }
+
+            return stats;
+        }
     }
 
-    public class SaleHistory
-    {
-        public int ProductID { get; set; }
-        public string ProductCode { get; set; }
-        public string ProductName { get; set; }
-        public DateTime Date { get; set; }
-        public int Amount { get; set; }
-        public int Price { get; set; }
-    }
 
-    public class Product_Amount
-    {
-        public int ProductID { get; set; }
-        public string ProductCode { get; set; }
-        public string ProductName { get; set; }
-        public int SumAmount { get; set; }
-    }
 }

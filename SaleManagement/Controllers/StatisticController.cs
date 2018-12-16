@@ -94,5 +94,17 @@ namespace SaleManagement.Controllers
                 });
             return Content(converted, "application/json");
         }
+
+        public ActionResult GetTotalSaleImportInMonths_JSON(int? startMonth, int? startYear, int? endMonth, int? endYear)
+        {
+            string converted = JsonConvert.SerializeObject(
+                Statistic.CommonStatistic.GetTotalSaleImportInMonths(this, startMonth, startYear, endMonth, endYear),
+                Formatting.None,
+                new IsoDateTimeConverter()
+                {
+                    DateTimeFormat = "yyyy-MM-dd"
+                });
+            return Content(converted, "application/json");
+        }
     }
 }
