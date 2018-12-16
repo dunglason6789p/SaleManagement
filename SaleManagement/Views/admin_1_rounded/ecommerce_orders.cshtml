@@ -34,10 +34,25 @@
     <link href="~/Content/custom/assets/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css" />
     <!-- END THEME LAYOUT STYLES -->
     <link rel="shortcut icon" href="favicon.ico" />
+    <script>
+        function getData() {
+            $.ajax({
+                method: 'POST',
+                url: '/SaleBill/',
+                success: function (result) {
+                    var tbody = document.getElementById("datatable_products_tbody");
+                    
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        }
+    </script>
 </head>
 <!-- END HEAD -->
 
-<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
+<body onload="getData()" class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
     <div class="page-wrapper">
         <!-- BEGIN HEADER -->
         <div class="page-header navbar navbar-fixed-top">
