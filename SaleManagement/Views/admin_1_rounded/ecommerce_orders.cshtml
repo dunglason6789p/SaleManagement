@@ -38,15 +38,54 @@
         function getData() {
             $.ajax({
                 method: 'POST',
-                url: '/SaleBill/',
+                url: '/SaleBill/SearchSaleBill',
                 success: function (result) {
-                    var tbody = document.getElementById("datatable_products_tbody");
-                    
+                    console.log(result);
+                    var value = "";
+                    var tbody = document.getElementById("table-tbody");
+                    for (var i = 0; i < result.length; i++) {
+                        value += '<tr>';
+                        value += '<td>';
+                        value += '  <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">';
+                        value += '  <input type="checkbox" class="group-checkable" data-set="#sample_2 .checkboxes" />';
+                        value += '  </label>';
+                        value += '</td>';
+                        value += '<td>';
+                        value += result[i]['Code'];
+                        value += '</td>';
+                        value += '<td>';
+                        value += result[i]['DateCreated'];
+                        value += '</td>';
+                        value += '<td>';
+                        value += result[i]['Staff']['FullName'];
+                        value += '</td>';
+                        value += '<td>';
+                        value += result[i]['Customer']['FullName'];
+                        value += '</td>';
+                        value += '<td>';
+                        value += result[i]['TotalValue']
+                        value += '</td>';
+                        value += '<td>';
+                        value += result[i]['DiscountValue']
+                        value += '</td>';
+                        value += "<td>"
+                        value += '  <div class="margin-bottom-5">';
+                        value += '      <button class="btn btn-sm btn-success filter-submit margin-bottom" ';
+                        value += ' onclick="viewDetail(' + result[i]['ID'] + ')">';
+                        value += '          <i class="fa fa-search"></i> View </button>';
+                        value += '  </div>';
+                        value += "</td>";
+                        value += '</tr>';
+                    }
+                    tbody.innerHTML = value;
                 },
                 error: function (err) {
                     console.log(err);
                 }
             });
+        }
+        function viewDetail(ID) {
+            alert(ID);
         }
     </script>
 </head>
@@ -616,7 +655,7 @@
                                                     </td>
                                                 </tr>
                                             </thead>
-                                            <tbody id="table-body"></tbody>
+                                            <tbody id="table-tbody"></tbody>
                                         </table>
                                     </div>
                                 </div>
