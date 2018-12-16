@@ -955,6 +955,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CRUD\Entity.cs" />
     <Compile Include="Controllers\CRUD\ImportBillCRUD.cs" />
     <Compile Include="Controllers\CRUD\ProductCRUD.cs" />
     <Compile Include="Controllers\CRUD\SaleBillCRUD.cs" />

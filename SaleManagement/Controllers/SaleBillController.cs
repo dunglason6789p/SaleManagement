@@ -57,10 +57,10 @@ namespace SaleManagement.Controllers
         /// <param name="pageSize">Số kết quả tìm kiếm trong 1 trang</param>
         /// <param name="pageToGo">Trang muốn đến.</param>
         /// <returns></returns>
-        public ActionResult SearchSaleBill(string code, string dateFrom, string dateTo, string customerID, string orderBy, int? pageSize, int? pageToGo)
+        public ActionResult SearchSaleBill(string code, string dateFrom, string dateTo, string customerName, string staffName, int? totalValueFrom, int? totalValueTo, int? discountFrom, int? discountTo, string orderBy, int? pageSize, int? pageToGo)
         {
             string converted = JsonConvert.SerializeObject(
-                SaleBillCRUD.GetSaleBillList(this, code, dateFrom, dateTo, customerID, orderBy, pageSize, pageToGo),
+                SaleBillCRUD.GetSaleBillList(this, code, dateFrom, dateTo, customerName, staffName, totalValueFrom, totalValueTo, discountFrom, discountTo, orderBy, pageSize, pageToGo),
                 Formatting.None,
                 new IsoDateTimeConverter()
                 {

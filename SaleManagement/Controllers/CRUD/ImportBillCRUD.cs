@@ -45,44 +45,44 @@ namespace SaleManagement.Controllers.CRUD
                 switch (orderBy)
                 {
                     case "Code":
-                        if (controller.GetSession(SessionKey.ImportBillStatistic_OrderBy) == "Code")
+                        if (controller.GetSession(SessionKey.ImportBill_OrderBy) == "Code")
                         {
                             importBills = importBills.OrderByDescending(m => m.Code);
-                            controller.SetSession(SessionKey.ImportBillStatistic_OrderBy, "Code_Desc");
+                            controller.SetSession(SessionKey.ImportBill_OrderBy, "Code_Desc");
                         }
                         else
                         {
                             importBills = importBills.OrderBy(m => m.Code);
-                            controller.SetSession(SessionKey.ImportBillStatistic_OrderBy, "Code");
+                            controller.SetSession(SessionKey.ImportBill_OrderBy, "Code");
                         }
                         break;
                     case "DateCreated":
-                        if (controller.GetSession(SessionKey.ImportBillStatistic_OrderBy) == "DateCreated")
+                        if (controller.GetSession(SessionKey.ImportBill_OrderBy) == "DateCreated")
                         {
                             importBills = importBills.OrderByDescending(m => m.DateCreated);
-                            controller.SetSession(SessionKey.ImportBillStatistic_OrderBy, "DateCreated_Desc");
+                            controller.SetSession(SessionKey.ImportBill_OrderBy, "DateCreated_Desc");
                         }
                         else
                         {
                             importBills = importBills.OrderBy(m => m.DateCreated);
-                            controller.SetSession(SessionKey.ImportBillStatistic_OrderBy, "DateCreated");
+                            controller.SetSession(SessionKey.ImportBill_OrderBy, "DateCreated");
                         }
                         break;
                     case "TotalValue":
-                        if (controller.GetSession(SessionKey.ImportBillStatistic_OrderBy) == "TotalValue")
+                        if (controller.GetSession(SessionKey.ImportBill_OrderBy) == "TotalValue")
                         {
                             importBills = _context.ImportBill.Include(m => m.ImportBillDetails).OrderByDescending(m => m.TotalValue);
-                            controller.SetSession(SessionKey.ImportBillStatistic_OrderBy, "TotalValue_Desc");
+                            controller.SetSession(SessionKey.ImportBill_OrderBy, "TotalValue_Desc");
                         }
                         else
                         {
                             importBills = _context.ImportBill.Include(m => m.ImportBillDetails).OrderBy(m => m.TotalValue);
-                            controller.SetSession(SessionKey.ImportBillStatistic_OrderBy, "TotalValue");
+                            controller.SetSession(SessionKey.ImportBill_OrderBy, "TotalValue");
                         }
                         break;
                     default:
                         importBills = importBills.OrderBy(m => m.DateCreated);
-                        controller.SetSession(SessionKey.ImportBillStatistic_OrderBy, "DateCreated");
+                        controller.SetSession(SessionKey.ImportBill_OrderBy, "DateCreated");
                         break;
                 }
             }
