@@ -76,7 +76,9 @@
                 }
             });
         }
-        function search() { }
+        function search() {
+            alert(1);
+        }
         function viewDetail(ID) {
             window.location.href = "/product/ViewDetail?ID=" + ID;
         }
@@ -349,12 +351,6 @@
                                     </a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="ecommerce_orders_view.html" class="nav-link ">
-                                        <i class="icon-tag"></i>
-                                        <span class="title">Order View</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
                                     <a href="/Product/Create" class="nav-link ">
                                         <i class="icon-graph"></i>
                                         <span class="title">Products</span>
@@ -595,32 +591,12 @@
                                                     </td>
                                                     <td>
                                                         <select name="product_category" class="form-control form-filter input-sm">
-                                                            <option value="">Select...</option>
-                                                            <option value="1">Mens</option>
-                                                            <option value="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Footwear</option>
-                                                            <option value="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clothing</option>
-                                                            <option value="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Accessories</option>
-                                                            <option value="5">
-                                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fashion
-                                                                Outlet
-                                                            </option>
-                                                            <option value="6">Football Shirts</option>
-                                                            <option value="7">
-                                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Premier
-                                                                League
-                                                            </option>
-                                                            <option value="8">
-                                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Football
-                                                                League
-                                                            </option>
-                                                            <option value="9">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serie A</option>
-                                                            <option value="10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bundesliga</option>
-                                                            <option value="11">Brands</option>
-                                                            <option value="12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adidas</option>
-                                                            <option value="13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nike</option>
-                                                            <option value="14">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Airwalk</option>
-                                                            <option value="15">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USA Pro</option>
-                                                            <option value="16">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kangol</option>
+                                                            <option value="0">Select...</option>
+                                                            <option value="Đặc sản">Đặc sản</option>
+                                                            <option value="Ngũ cốc, sản phẩm từ ngũ cốc">Ngũ cốc, sản phẩm từ ngũ cốc</option>
+                                                            <option value="Thực phẩm chín, qua chế biến">Thực phẩm chín, qua chế biến</option>
+                                                            <option value="Thực phẩm tự nhiên từ động vật">Thực phẩm tự nhiên từ động vật</option>
+                                                            <option value="Thực phẩm tươi sống">Thực phẩm tươi sống</option>
                                                         </select>
                                                     </td>
                                                     <td>
@@ -662,9 +638,8 @@
                                                     </td>
                                                     <td>
                                                         <div class="margin-bottom-5">
-                                                            <button class="btn btn-sm btn-success filter-submit margin-bottom" onclick="search();">
-                                                                <i class="fa fa-search"></i> Search
-                                                            </button>
+                                                            <input type="button" class="btn btn-sm btn-success filter-submit margin-bottom" onclick="search();" value="Search" />
+                                                            
                                                         </div>
                                                     </td>
                                                 </tr>

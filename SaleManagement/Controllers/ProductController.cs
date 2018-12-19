@@ -123,10 +123,10 @@ namespace SaleManagement.Controllers
             });
         }
 
-        public ActionResult SearchProduct_JSON(string code, string dateFrom, string dateTo, string brandName, string orderBy, int? pageToGo)
+        public ActionResult SearchProduct_JSON(string code, string productName, string category, string priceFrom, string priceTo, string availabilityFrom, string availabilityTo, string dateFrom, string dateTo, string brandName, string orderBy, int? pageSize, int? pageToGo)
         {
             string converted = JsonConvert.SerializeObject(
-                CRUD.ProductCRUD.GetProductList(this, code, dateFrom, dateTo, brandName, orderBy, pageToGo),
+                CRUD.ProductCRUD.GetProductList(this, code, productName, category, priceFrom, priceTo, availabilityFrom, availabilityTo, dateFrom, dateTo, brandName, orderBy, pageSize, pageToGo),
                 Formatting.None,
                 new IsoDateTimeConverter()
                 {

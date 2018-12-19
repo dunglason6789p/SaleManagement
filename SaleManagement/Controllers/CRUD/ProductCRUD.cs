@@ -45,14 +45,46 @@ namespace SaleManagement.Controllers.CRUD
             }
         }
 
-        public static List<Product> GetProductList(Controller controller, string code, string dateFrom, string dateTo, string brandName, string orderBy, int? pageToGo)
+        public static List<Product> GetProductList(Controller controller, string code, string productName, string category, string priceFrom, string priceTo, string availabilityFrom, string availabilityTo, string dateFrom, string dateTo, string brandName, string orderBy, int? pageSize, int? pageToGo)
         {
             int storeID = Int32.Parse(controller.GetSession("StoreID").ToString());
             IQueryable<Product> saleBills = _context.Product.Where(m => m.StoreID == storeID);
             if (!String.IsNullOrEmpty(code))
             {
-                saleBills = saleBills.Where(m => m.Code.ToLower().Contains(code));
+                saleBills = saleBills.Where(m => m.Code.ToLower().Contains(code.ToLower()));
             }
+            if (!String.IsNullOrEmpty(productName))
+            {
+                saleBills = saleBills.Where(m => m.Name.ToLower().Contains(productName.ToLower()));
+            }
+            if (!String.IsNullOrEmpty(category))
+            {
+                saleBills = saleBills.Where(m => m.CategoryName.ToLower().Contains(category.ToLower()));
+            }
+
+            if (!String.IsNullOrEmpty(priceFrom))
+            {
+                int priceConverted = Int32.Parse(priceFrom);
+                saleBills = saleBills.Where(m => m.RetailPrice >= priceConverted);
+            }
+            if (!String.IsNullOrEmpty(priceTo))
+            {
+                int priceConverted = Int32.Parse(priceTo);
+                saleBills = saleBills.Where(m => m.RetailPrice <= priceConverted);
+            }
+
+            if (!String.IsNullOrEmpty(availabilityFrom))
+            {
+                int availConverted = Int32.Parse(availabilityFrom);
+                saleBills = saleBills.Where(m => m.Availability >= availConverted);
+            }
+            if (!String.IsNullOrEmpty(availabilityTo))
+            {
+                int availConverted = Int32.Parse(availabilityTo);
+                saleBills = saleBills.Where(m => m.Availability <= availConverted);
+            }
+
+
             if (!String.IsNullOrEmpty(dateFrom))
             {
                 DateTime dateFrom_converted = DateTime.Parse(dateFrom);
@@ -103,11 +135,11 @@ namespace SaleManagement.Controllers.CRUD
             }
 
             #region
-            int pageSize = 1000;
+            pageSize = 1000;
             if (pageToGo == null) pageToGo = 1;
             #endregion
 
-            List<Product> saleBillsList = saleBills.ToPagedList(pageToGo.Value, pageSize).ToList();
+            List<Product> saleBillsList = saleBills.ToPagedList(pageToGo.Value, pageSize.Value).ToList();
 
             return saleBillsList;
         }

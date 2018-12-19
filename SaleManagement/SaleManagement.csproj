@@ -129,7 +129,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Views\admin_1_rounded\ecommerce_index.html" />
-    <Content Include="Views\admin_1_rounded\ecommerce_orders_view.html" />
+    <Content Include="Views\admin_1_rounded\ecommerce_orders_add.cshtml" />
+    <None Include="Views\admin_1_rounded\ecommerce_orders_view.cshtml" />
     <Content Include="Views\admin_1_rounded\page_general_about.html" />
     <Content Include="Views\admin_1_rounded\page_general_contact.html" />
     <Content Include="Views\admin_1_rounded\page_general_pricing.html" />
@@ -955,10 +956,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CRUD\CustomerCRUD.cs" />
     <Compile Include="Controllers\CRUD\Entity.cs" />
     <Compile Include="Controllers\CRUD\ImportBillCRUD.cs" />
     <Compile Include="Controllers\CRUD\ProductCRUD.cs" />
     <Compile Include="Controllers\CRUD\SaleBillCRUD.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DBCreating\DBCreateController.cs" />
     <Compile Include="Controllers\DebugController.cs" />
@@ -1278,6 +1281,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\ViewModels\" />
+    <Folder Include="Views\Customer\" />
     <Folder Include="Views\Import\" />
     <Folder Include="Views\Statistic\" />
   </ItemGroup>

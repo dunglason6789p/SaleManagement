@@ -241,5 +241,42 @@ namespace SaleManagement.Controllers.CRUD
 
             return saleBill.ID;
         }
+
+        public static List<SaleBillDetail> GetSaleBillDetail(Controller controller, int id)
+        {
+            int storeID = Int32.Parse(controller.GetSession("StoreID"));
+            List<SaleBillDetail> saleBillDetails = _context.SaleBillDetail.Where(m => m.SaleBillID == id && m.StoreID == storeID).ToList();
+            foreach(var saleBillDetail in saleBillDetails)
+            {
+                int productID = saleBillDetail.ProductID;
+                Product product = _context.Product.SingleOrDefault(m => m.ID == productID);
+                saleBillDetail.Product = product;
+            }
+            return saleBillDetails;
+        }
+
+        public static SaleBill GetSaleBillWithDetail(Controller controller, int id)
+        {
+            int storeID = Int32.Parse(controller.GetSession("StoreID"));
+            SaleBill saleBill = _context.SaleBill.SingleOrDefault(m => m.ID == id);
+            List<SaleBillDetail> saleBillDetails = _context.SaleBillDetail.Where(m => m.SaleBillID == id && m.StoreID == storeID).ToList();
+            foreach (var saleBillDetail in saleBillDetails)
+            {
+                int productID = saleBillDetail.ProductID;
+                Product product = _context.Product.SingleOrDefault(m => m.ID == productID);
+                saleBillDetail.Product = product;
+            }
+            saleBill.SaleBillDetails = saleBillDetails;
+
+            int staffID = saleBill.StaffID;
+            Staff staff = _context.Staff.SingleOrDefault(m => m.ID == staffID);
+            saleBill.Staff = staff;
+
+            int customerID = saleBill.CustomerID;
+            Customer customer = _context.Customer.SingleOrDefault(m => m.ID == customerID);
+            saleBill.Customer = customer;
+
+            return saleBill;
+        }
     }
 }

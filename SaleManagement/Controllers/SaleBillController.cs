@@ -29,6 +29,11 @@ namespace SaleManagement.Controllers
             return View("~/Views/admin_1_rounded/ecommerce_orders.cshtml");
         }
 
+        public ActionResult AddNewOrder()
+        {
+            return View("~/Views/admin_1_rounded/ecommerce_orders_add.cshtml");
+        }
+
         [HttpPost]
         public ActionResult Create(string nullString)
         {
@@ -38,6 +43,36 @@ namespace SaleManagement.Controllers
         public ActionResult ViewTest()
         {
             return View();
+        }
+
+        public ActionResult ViewDetail(int ID)
+        {
+            ViewBag.ID = ID;
+            return View("~/Views/admin_1_rounded/ecommerce_orders_view.cshtml");
+        }
+
+        public ActionResult GetSaleBillDetail_JSON(int ID)
+        {            
+            string converted = JsonConvert.SerializeObject(
+                SaleBillCRUD.GetSaleBillDetail(this, ID),
+                Formatting.None,
+                new IsoDateTimeConverter()
+                {
+                    DateTimeFormat = "yyyy-MM-dd"
+                });
+            return Content(converted, "application/json");
+        }
+
+        public ActionResult GetSaleBillWithDetail_JSON(int ID)
+        {
+            string converted = JsonConvert.SerializeObject(
+                SaleBillCRUD.GetSaleBillWithDetail(this, ID),
+                Formatting.None,
+                new IsoDateTimeConverter()
+                {
+                    DateTimeFormat = "yyyy-MM-dd"
+                });
+            return Content(converted, "application/json");
         }
 
         public ActionResult Index()

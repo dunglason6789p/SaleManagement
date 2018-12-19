@@ -308,12 +308,6 @@
                                     </a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="ecommerce_orders_view.html" class="nav-link ">
-                                        <i class="icon-tag"></i>
-                                        <span class="title">Order View</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
                                     <a href="/Product/Create" class="nav-link ">
                                         <i class="icon-graph"></i>
                                         <span class="title">Products</span>
@@ -668,7 +662,7 @@
                                                                                 <option value="Thực phẩm chín, qua chế biến">Thực phẩm chín, qua chế biến</option>
                                                                                 }
                                                                                 @if (Model.CategoryName == "Thực phẩm tự nhiên từ động vật"){
-                                                                                <option value="Thực phẩm tự nhiên từ động vật">Thực phẩm tự nhiên từ động vật</option>
+                                                                                <option value="Thực phẩm tự nhiên từ động vật" selected>Thực phẩm tự nhiên từ động vật</option>
                                                                                 } else {
                                                                                 <option value="Thực phẩm tự nhiên từ động vật">Thực phẩm tự nhiên từ động vật</option>
                                                                                 }
@@ -731,12 +725,12 @@
                                                                             <select class="form-control" name="Status" id="Status">
                                                                                 @if (Model.Status == 0)
                                                                                 {
-                                                                                    <option value="0" selected>Sẵn sàng</option>
+                                                                                    <option value="0" selected>Còn hàng</option>
                                                                                     <option value="1">Đã xóa</option>
                                                                                 }
                                                                                 else
                                                                                 {
-                                                                                    <option value="0">Sẵn sàng</option>
+                                                                                    <option value="0">Còn hàng</option>
                                                                                     <option value="1" selected>Đã xóa</option>
                                                                                 }
                                                                             </select>
