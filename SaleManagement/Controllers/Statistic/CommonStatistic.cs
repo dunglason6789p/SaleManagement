@@ -23,7 +23,7 @@ namespace SaleManagement.Controllers.Statistic
             int storeID = Int32.Parse(controller.GetSession(Session.SessionKey.StoreID));
 
             DateTime startDate = (startMonth != null && startYear != null) ? new DateTime(startYear.Value, startMonth.Value, 1) : DateTime.Now.AddYears(-1);
-            DateTime endDate = (endMonth != null && endYear != null) ? new DateTime(endMonth.Value, endYear.Value, DateTime.DaysInMonth(endYear.Value, endMonth.Value)) : DateTime.Now;
+            DateTime endDate = (endMonth != null && endYear != null) ? new DateTime(endYear.Value, endMonth.Value, DateTime.DaysInMonth(endYear.Value, endMonth.Value)) : DateTime.Now;
 
             DateTime iterator = startDate;
             List<DateTime> monthsToConsider = new List<DateTime>();

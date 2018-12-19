@@ -1190,7 +1190,7 @@ var Dashboard = function() {
 
                 "dataProvider": [{
                     "year": 2009,
-                    "income": 23.5,
+                    "income": 43.5,
                     "expenses": 21.1
                 }, {
                     "year": 2010,

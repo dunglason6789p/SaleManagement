@@ -515,10 +515,10 @@ C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\System.Web.Webpages.Razo
 C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\System.Web.Helpers.xml
 C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\System.Web.Mvc.xml
 C:\Users\Minh\Desktop\SaleManagement\SaleManagement\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Minh\Desktop\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csprojAssemblyReference.cache
 C:\Users\Minh\Desktop\SaleManagement\SaleManagement\obj\Debug\SaleManagement.Migrations.MigModel1.resources
 C:\Users\Minh\Desktop\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.GenerateResource.cache
 C:\Users\Minh\Desktop\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.CoreCompileInputs.cache
 C:\Users\Minh\Desktop\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csproj.CopyComplete
 C:\Users\Minh\Desktop\SaleManagement\SaleManagement\obj\Debug\SaleManagement.dll
 C:\Users\Minh\Desktop\SaleManagement\SaleManagement\obj\Debug\SaleManagement.pdb
+C:\Users\Minh\Desktop\SaleManagement\SaleManagement\obj\Debug\SaleManagement.csprojAssemblyReference.cache

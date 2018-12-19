@@ -72,7 +72,7 @@ namespace SaleManagement.Controllers.Statistic
                 select importBill
                 );
 
-            int sum = importBillQuery.Sum(m => m.TotalValue);
+            int sum = importBillQuery.ToList().Sum(m => m.TotalValue);
 
             return sum;
         }

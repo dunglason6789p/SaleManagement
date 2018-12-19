@@ -191,7 +191,8 @@ namespace SaleManagement.Controllers.Statistic
                 select saleBill
                 );
 
-            int sum = saleBillQuery.Sum(m => m.TotalValue);
+            int sum = saleBillQuery.ToList().Sum(m => m.TotalValue);
+            
 
             return sum;
         }
