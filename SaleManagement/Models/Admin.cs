@@ -7,7 +7,7 @@ using System.Web;
 
 namespace SaleManagement.Models
 {
-    public class Admin : Account
+    public class Admin : Account 
     {
         #region Account
         /// <summary>
