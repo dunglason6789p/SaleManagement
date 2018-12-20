@@ -115,6 +115,20 @@ namespace SaleManagement.Controllers.Statistic
 
             return stats;
         }
+
+        public static int GetTotalImportValueAllTime(Controller controller)
+        {
+            int storeID = Int32.Parse(controller.GetSession("StoreID").ToString());
+            var importBillQuery = (
+                from importBill in _context.ImportBill
+                where importBill.StoreID == storeID
+                select importBill
+                );
+
+            int sum = importBillQuery.ToList().Sum(m => m.TotalValue);
+
+            return sum;
+        }
     }
 
 

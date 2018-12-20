@@ -235,6 +235,35 @@ namespace SaleManagement.Controllers.Statistic
 
             return stats;
         }
+
+
+        public static int GetTotalSaleValueAllTime(Controller controller)
+        {
+            int storeID = Int32.Parse(controller.GetSession("StoreID").ToString());
+            var saleBillQuery = (
+                from saleBill in _context.SaleBill
+                where saleBill.StoreID == storeID
+                select saleBill
+                );
+
+            int sum = saleBillQuery.ToList().Sum(m => m.TotalValue);
+
+            return sum;
+        }
+
+        public static int CountSaleBillAllTime(Controller controller)
+        {
+            int storeID = Int32.Parse(controller.GetSession("StoreID").ToString());
+            var saleBillQuery = (
+                from saleBill in _context.SaleBill
+                where saleBill.StoreID == storeID
+                select saleBill
+                );
+
+            int count = saleBillQuery.Count();
+
+            return count;
+        }
     }
 
 

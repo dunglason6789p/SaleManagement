@@ -52,5 +52,10 @@ namespace SaleManagement.Controllers.Statistic
 
             return stats;
         }
+
+        public static int GetTotalRevenueAllTime(Controller controller)
+        {
+            return SaleStatistic.GetTotalSaleValueAllTime(controller) - ImportStatistic.GetTotalImportValueAllTime(controller);
+        }
     }
 }

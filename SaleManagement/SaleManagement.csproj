@@ -971,12 +971,14 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SaleBillController.cs" />
+    <Compile Include="Controllers\Session\LoginSession.cs" />
     <Compile Include="Controllers\Session\SessionHelper.cs" />
     <Compile Include="Controllers\Session\SessionKey.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\StatisticController.cs" />
     <Compile Include="Controllers\Statistic\CommonStatistic.cs" />
+    <Compile Include="Controllers\Statistic\CustomerStatistic.cs" />
     <Compile Include="Controllers\Statistic\Entities.cs" />
     <Compile Include="Controllers\Statistic\ImportStatistic.cs" />
     <Compile Include="Controllers\Statistic\ProductStatistic.cs" />
