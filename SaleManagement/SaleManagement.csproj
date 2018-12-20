@@ -131,9 +131,9 @@
     <Content Include="Views\admin_1_rounded\ecommerce_index.html" />
     <Content Include="Views\admin_1_rounded\ecommerce_orders_add.cshtml" />
     <None Include="Views\admin_1_rounded\ecommerce_orders_view.cshtml" />
-    <Content Include="Views\admin_1_rounded\page_general_about.html" />
-    <Content Include="Views\admin_1_rounded\page_general_contact.html" />
-    <Content Include="Views\admin_1_rounded\page_general_pricing.html" />
+    <None Include="Views\admin_1_rounded\page_general_about.cshtml" />
+    <None Include="Views\admin_1_rounded\page_general_contact.cshtml" />
+    <None Include="Views\admin_1_rounded\page_general_pricing.cshtml" />
     <Content Include="Views\admin_1_rounded\page_general_search_3.html" />
     <Content Include="Views\admin_1_rounded\page_user_profile_1.html" />
     <Content Include="Views\admin_1_rounded\page_user_profile_1_account.html" />
@@ -966,6 +966,7 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DBCreating\DBCreateController.cs" />
     <Compile Include="Controllers\DebugController.cs" />
+    <Compile Include="Controllers\GeneralController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImportController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -1287,6 +1288,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\ViewModels\" />
     <Folder Include="Views\Customer\" />
+    <Folder Include="Views\General\" />
     <Folder Include="Views\Import\" />
     <Folder Include="Views\Staff\" />
     <Folder Include="Views\Statistic\" />
