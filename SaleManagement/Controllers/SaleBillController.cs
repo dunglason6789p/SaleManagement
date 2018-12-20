@@ -105,7 +105,7 @@ namespace SaleManagement.Controllers
         }
 
         //JSON.
-        public ActionResult CreateSaleBill(SaleBill saleBill)
+        public ActionResult CreateSaleBill_OLD(SaleBill saleBill)
         {
             int id = CRUD.SaleBillCRUD.CreateSaleBill(saleBill);
             return Json(new {
@@ -113,6 +113,60 @@ namespace SaleManagement.Controllers
             });
         }
 
-        
+        //JSON.
+        public ActionResult CreateSaleBill(string listProduct, string amount, string total, string customer)
+        {
+            /*
+            var listProductDefinition = new
+            {
+                ID = "",
+                Code = "",
+                RetailPrice = ""
+            };
+            var listProductConverted = JsonConvert.DeserializeAnonymousType(listProduct, listProductDefinition);
+            */
+
+            dynamic listProductConverted = JsonConvert.DeserializeObject(listProduct);
+
+            dynamic amountConverted = JsonConvert.DeserializeObject(amount);
+
+            dynamic customerConverted = JsonConvert.DeserializeObject(customer);
+
+            SaleBill saleBill = new SaleBill();
+
+            saleBill.CustomerID = customerConverted.ID;
+
+            List<SaleBillDetail> saleBillDetails = new List<SaleBillDetail>();
+
+            for(int i=0; i<listProductConverted.Count; i++)
+            {
+                saleBillDetails.Add(new SaleBillDetail()
+                {
+                    ProductID = listProductConverted[i].ID,
+                    Amount = amountConverted[i],
+                    Price = listProductConverted[i].RetailPrice
+                });
+            }
+
+            saleBill.SaleBillDetails = saleBillDetails;
+
+            int sum = 0; 
+            foreach(var item in saleBillDetails)
+            {
+                sum += item.Amount * item.Price;
+            }
+            saleBill.TotalValue = sum;
+
+            _context.SaveChanges();
+
+
+            int id = CRUD.SaleBillCRUD.CreateSaleBill(saleBill);
+            return Json(new
+            {
+                saleBill
+            });
+        }
+
+
     }
 }

@@ -82,6 +82,29 @@
         var product = new Array();
         var amount = new Array();
         var total = new Array();
+        var customer;
+        function save() {
+            $.ajax({
+                method: 'POST',
+                url: '/SaleBill/CreateSaleBill?listProduct',
+                data: {
+                    "listProduct": JSON.stringify(product),
+                    "amount": JSON.stringify(amount),
+                    "total": JSON.stringify(total),
+                    "customer": JSON.stringify(customer)
+                },
+                success: function (result) {
+                    alert(result);
+                    console.log(result);
+                },
+                error: function (err) {
+                    alert('ERROR');
+                    alert(result);
+                    console.log(err);
+                }
+            });
+            //window.location.href = '/SaleBill/CreateSaleBill?listProduct=' + JSON.stringify(product) + '&amount=' + JSON.stringify(amount) + '&total=' + JSON.stringify(total) + '&customer=' + JSON.stringify(customer);
+        }
         function searchCustomer() {
             var phoneInput = document.getElementById('Phone');
             var phoneNumber = phoneInput.value;
@@ -109,10 +132,22 @@
             });
         }
         function itemSearchClick(phoneNumber) {
-            console.log("itemClick: ", phoneNumber);
             var phoneInput = document.getElementById('Phone');
             phoneInput.value = phoneNumber;
             document.getElementById("listSearchContainer").style.visibility = "hidden";
+            $.ajax({
+                method: 'POST',
+                url: '/Customer/SearchCustomer_JSON?phoneNumber=' + phoneNumber,
+                success: function (result) {
+                    document.getElementById('customer-FullName').value = result[0]['FullName'];
+                    document.getElementById('customer-Email').value = result[0]['Email'];
+                    document.getElementById('customer-Address').value = result[0]['Address'];
+                    customer = result[0];
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
         }
         function getData() {
             $.ajax({
@@ -120,11 +155,7 @@
                 url: '/Product/SearchProduct_JSON',
                 success: function (result) {
                     allProduct = result;
-                    var value_code = '';
-                    for (var i = 0; i < result.length; i++) {
-                        value_code += '<option>' + result[i]['Code'] + '</option>';
-                    }
-                    document.getElementById('Code').innerHTML = value_code;
+                    setDataList();
                 },
                 error: function (err) {
                     console.log(err);
@@ -147,43 +178,62 @@
         }
         function calculateTotal(number) {
             amount[number] = document.getElementsByName('Amount')[number].value;
-            total[number] = makeNumber(amount[number] * product[number]['RetailPrice']);
-            document.getElementsByName('Total')[number].value = total[number];
+            total[number] = amount[number] * product[number]['RetailPrice'];
+            document.getElementsByName('Total')[number].value = makeNumber(total[number]);
+            setTotalValue();
         }
         function add() {
-            var value = '<tr>';
+            var value = '';
+            for (var i = 0; i <= numberProduct; i++) {
+                value += '<tr>';
+                value += '<td>';
+                value += '  <input list="Code" class="form-control" size="15" onchange="printProduct(' + i + ')" name="ID" />';
+                value += '  <datalist id="Code"></datalist>';
+                value += '</td>';
+                value += '<td>';
+                value += '  <input type="text" value="" class="form-control" size="30" name="Name"/>';
+                value += '</td>';
+                value += '<td>';
+                value += '  <input class="form-control" type="text" size="9" value="" name="Status" readonly />';
+                value += '</td>';
+                value += '<td>';
+                value += '  <input class="form-control" type="text" size="9" value="" name="Oprice" readonly />';
+                value += '</td>';
+                value += '<td>';
+                value += '  <input class="form-control" type="text" size="9" value="" name="Price" readonly />';
+                value += '</td>';
+                value += '<td>';
+                value += '  <input class="form-control" type="number" style="width: 5em" value="" name="Amount" onchange="calculateTotal(' + i + ')" />';
+                value += '</td>';
+                value += '<td>';
+                value += '  <input class="form-control" type="text" style="width: 5em" value="" readonly name="Discount" />';
+                value += '</td>';
+                value += '<td>';
+                value += '  <input class="form-control" type="text" value="" readonly name="Total" />';
+                value += '</td>';
+                value += '</tr>';
+            }
+            value += '<tr>';
+            value += '<td></td>';
+            value += '<td></td>';
+            value += '<td></td>';
+            value += '<td></td>';
+            value += '<td></td>';
+            value += '<td></td>';
             value += '<td>';
-            value += '  <input list="Code" class="form-control" size="15" onchange="printProduct(' + numberProduct + ')" name="ID" />';
-            value += '  <datalist id="Code"></datalist>';
+            value += '  Total value:';
             value += '</td>';
             value += '<td>';
-            value += '  <input type="text" value="" class="form-control" size="30" name="Name"/>';
-            value += '</td>';
-            value += '<td>';
-            value += '  <input class="form-control" type="text" size="9" value="" name="Status" readonly />';
-            value += '</td>';
-            value += '<td>';
-            value += '  <input class="form-control" type="text" size="9" value="" name="Oprice" readonly />';
-            value += '</td>';
-            value += '<td>';
-            value += '  <input class="form-control" type="text" size="9" value="" name="Price" readonly />';
-            value += '</td>';
-            value += '<td>';
-            value += '  <input class="form-control" type="number" style="width: 5em" value="" name="Amount" onchange="calculateTotal(' + numberProduct + ')" />';
-            value += '</td>';
-            value += '<td>';
-            value += '  <input class="form-control" type="text" style="width: 5em" value="" readonly name="Discount" />';
-            value += '</td>';
-            value += '<td>';
-            value += '  <input class="form-control" type="text" value="" readonly name="Total" />';
+            value += '  <input class="form-control" type="text" value="" readonly name="TotalValue" />';
             value += '</td>';
             value += '</tr>';
-            document.getElementById('order-detail-body').innerHTML += value;
+            document.getElementById('order-detail-body').innerHTML = value;
+            setDataList();
+            setTotalValue();
             for (var i = 0; i < numberProduct; i++) {
                 print(i);
             }
             numberProduct++;
-            
         }
         function print(number) {
             document.getElementsByName('ID')[number].value = product[number]['Code'];
@@ -198,6 +248,21 @@
             document.getElementsByName('Amount')[number].value = (amount[number] == null ? 0 : amount[number]);
             document.getElementsByName('Discount')[number].value = product[number]['DiscountRate'] + '%';
             document.getElementsByName('Total')[number].value = (total[number] == null ? 0 : total[number]);
+        }
+        function setDataList() {
+            var value_code = '';
+            for (var i = 0; i < allProduct.length; i++) {
+                value_code += '<option>' + allProduct[i]['Code'] + '</option>';
+            }
+            document.getElementById('Code').innerHTML = value_code;
+        }
+        function setTotalValue() {
+            var total_value = 0;
+            for (var i = 0; i < numberProduct; i++) {
+                console.log(total[i]);
+                total_value += parseInt(total[i]);
+            }
+            document.getElementsByName('TotalValue')[0].value = makeNumber(total_value);
         }
         function makeNumber(number) {
             var value = '';
@@ -541,12 +606,13 @@
                                         </span>
                                     </div>
                                     <div class="actions">
-                                        <div class="btn-group btn-group-devided" data-toggle="buttons">
-                                            <label class="btn btn-transparent green btn-outline btn-circle btn-sm active">
-                                                <input type="radio" name="options" class="toggle" id="option1">Save</label>
-                                            <label class="btn btn-transparent blue btn-outline btn-circle btn-sm">
-                                                <input type="radio" name="options" class="toggle" id="option2">Settings</label>
-                                        </div>
+                                        <button class="btn btn-transparent green btn-outline btn-circle btn-sm active" onclick="save()">
+                                            <i class="fa fa-save"></i>
+                                            Save
+                                        </button>
+                                        <button class="btn btn-transparent blue btn-outline btn-circle btn-sm">
+                                            Settings
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="portlet-body">
@@ -559,7 +625,7 @@
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="tab_1">
                                                 <div class="row">
-                                                    <div class="col-md-4 col-sm-12">
+                                                    <div class="col-md-6 col-sm-12">
                                                         <div class="portlet blue-hoki box">
                                                             <div class="portlet-title">
                                                                 <div class="caption">
@@ -588,11 +654,14 @@
                                                                     <div class="col-md-5 name"> Phone Number: </div>
                                                                     <div class="col-md-7 value"> 0363503879 </div>
                                                                 </div>
+                                                                <br />
+                                                                <br />
+                                                                <br />
                                                             </div>    
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4 col-sm-12">
-                                                        <div class="portlet blue-hoki box">
+                                                    <div class="col-md-6 col-sm-12">
+                                                        <div class="portlet yellow-crusta box">
                                                             <div class="portlet-title">
                                                                 <div class="caption">
                                                                     <i class="fa fa-cogs"></i>Customer Information
@@ -607,19 +676,19 @@
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Name: </div>
                                                                     <div class="col-md-7 value">
-                                                                        <input class="form-control" type="text" value="" name="FullName" />
+                                                                        <input class="form-control" type="text" value="" id="customer-FullName" />
                                                                     </div>
                                                                 </div>
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Email: </div>
                                                                     <div class="col-md-7 value">
-                                                                        <input class="form-control" type="text" value="" name="Email" />
+                                                                        <input class="form-control" type="text" value="" id="customer-Email" />
                                                                     </div>
                                                                 </div>
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Address: </div>
                                                                     <div class="col-md-7 value">
-                                                                        <input class="form-control" type="text" value="" name="Address" />
+                                                                        <input class="form-control" type="text" value="" id="customer-Address" />
                                                                     </div>
                                                                 </div>
                                                                 <div class="row static-info">
@@ -632,21 +701,6 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4 col-sm-12">
-                                                        <div class="portlet yellow-crusta box">
-                                                            <div class="portlet-title">
-                                                                <div class="caption">
-                                                                    <i class="fa fa-cogs"></i>Order Details
-                                                                </div>
-                                                                <div class="actions">
-                                                                    <a href="javascript:;" class="btn btn-default btn-sm">
-                                                                        <i class="fa fa-pencil"></i> Edit
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="portlet-body" id="order-body"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -703,6 +757,20 @@
                                                                                 </td>
                                                                                 <td>
                                                                                     <input class="form-control" type="text" value="" readonly id="Total" name="Total" />
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                                <td>
+                                                                                    Total Value:
+                                                                                </td>
+                                                                                <td>
+                                                                                    <input class="form-control" type="text" value="0" readonly id="Total" name="TotalValue" />
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
