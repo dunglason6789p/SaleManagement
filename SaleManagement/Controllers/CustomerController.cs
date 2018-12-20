@@ -37,4 +37,4 @@ namespace SaleManagement.Controllers
             return Content(converted, "application/json");
         }
     }
-}
+} 

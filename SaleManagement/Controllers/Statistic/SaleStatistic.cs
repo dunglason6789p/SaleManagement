@@ -17,7 +17,7 @@ namespace SaleManagement.Controllers.Statistic
     {
         public SaleStatistic()
         {
-
+ 
         }
 
         public static ApplicationDbContext _context = new ApplicationDbContext();

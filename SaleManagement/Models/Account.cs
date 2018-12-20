@@ -10,7 +10,7 @@ namespace SaleManagement.Models
         /// <summary>
         /// ID của tài khoản. Cái này được tạo tự động trong database (auto-increment). Cái này không phải UserName, không dùng để đăng nhập.
         /// </summary>
-        int ID { get; set; } // KHÔNG PHẢI UserName. Không dùng để đăng nhập.
+        int ID { get; set; } // KHÔNG PHẢI UserName. Không dùng để đăng nhập. 
 
         /// <summary>
         /// UserName. Dùng để đăng nhập.

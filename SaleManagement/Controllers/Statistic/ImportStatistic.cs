@@ -8,7 +8,7 @@ using System.Web;
 using System.Data.Entity;
 using PagedList;
 using System.Globalization;
-using System.Web.Mvc;
+using System.Web.Mvc; 
 
 namespace SaleManagement.Controllers.Statistic
 {
