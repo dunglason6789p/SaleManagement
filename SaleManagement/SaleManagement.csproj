@@ -961,6 +961,7 @@
     <Compile Include="Controllers\CRUD\ImportBillCRUD.cs" />
     <Compile Include="Controllers\CRUD\ProductCRUD.cs" />
     <Compile Include="Controllers\CRUD\SaleBillCRUD.cs" />
+    <Compile Include="Controllers\CRUD\StaffCRUD.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DBCreating\DBCreateController.cs" />
@@ -973,6 +974,7 @@
     <Compile Include="Controllers\Session\SessionHelper.cs" />
     <Compile Include="Controllers\Session\SessionKey.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
+    <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\StatisticController.cs" />
     <Compile Include="Controllers\Statistic\CommonStatistic.cs" />
     <Compile Include="Controllers\Statistic\Entities.cs" />
@@ -1271,6 +1273,7 @@
     <Content Include="Views\admin_1_rounded\ecommerce_products_edit.cshtml" />
     <Content Include="Views\admin_1_rounded\page_user_login_1.cshtml" />
     <Content Include="Views\admin_1_rounded\pinegrow.json" />
+    <Content Include="Views\admin_1_rounded\staff.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1283,6 +1286,7 @@
     <Folder Include="Models\ViewModels\" />
     <Folder Include="Views\Customer\" />
     <Folder Include="Views\Import\" />
+    <Folder Include="Views\Staff\" />
     <Folder Include="Views\Statistic\" />
   </ItemGroup>
   <ItemGroup>

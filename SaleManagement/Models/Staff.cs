@@ -20,12 +20,7 @@ namespace SaleManagement.Models
         //Unique check is done only in application layer (unique by each store).
         public string Code { get; set; }
 
-        /// <summary>
-        /// UserName. Dùng để đăng nhập.
-        /// </summary>   
-        [StringLength(450)]
-        [Index(IsUnique = true)] // UNIQUE CONSTRAINT.
-        public string UserName { get; set; }
+        //USERNAME == Code.
 
         /// <summary>
         /// Mật khẩu lưu trong database (ở dạng đã mã hóa bằng cách hash(password + salt).

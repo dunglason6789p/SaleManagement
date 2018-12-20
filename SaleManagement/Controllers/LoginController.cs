@@ -33,6 +33,7 @@ namespace SaleManagement.Controllers
                     if (admin.PasswordEncrypted == passwordHashed) //Đăng nhập thành công !
                     {
                         Session[SessionKey.UserName] = admin.UserName;
+                        Session[SessionKey.StoreID] = 0;
                         return View("~/Views/admin_1_rounded/dashboard_2.cshtml"); // Đưa về trang màn hình chính.
                     }
                     else
@@ -49,12 +50,13 @@ namespace SaleManagement.Controllers
             }
             else
             {
-                Staff staff = _context.Staff.SingleOrDefault(m => m.UserName == username);
+                Staff staff = _context.Staff.SingleOrDefault(m => m.Code == username);
                 if (staff != null) // Nếu tồn tại tài khoản.
                 {
                     string passwordHashed = EncryptionHelper.GetHash(password + staff.Salt); //Kiểm tra password.
                     if (staff.PasswordEncrypted == passwordHashed)
                     {
+                        Session[SessionKey.StoreID] = 0;
                         return View("~/Views/admin_1_rounded/dashboard_2.cshtml"); // Đưa về trang màn hình chính.
                     }
                     else
