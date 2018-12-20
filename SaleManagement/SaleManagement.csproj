@@ -104,6 +104,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\custom\assets\pages\css\select2.css" />
+    <Content Include="Content\custom\assets\pages\css\select2.png" />
+    <Content Include="Content\custom\assets\pages\scripts\select2.js" />
     <Content Include="Content\PagedList.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

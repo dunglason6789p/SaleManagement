@@ -12,6 +12,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Sale Management" name="Team Group 1" />
+    <!-- BEGIN CORE PLUGINS -->
+    <script src="~/Content/custom/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="~/Content/custom/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="~/Content/custom/assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+    <script src="~/Content/custom/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="~/Content/custom/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="~/Content/custom/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+    <!-- END CORE PLUGINS -->
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
     <link href="~/Content/custom/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -24,7 +32,7 @@
     <link href="~/Content/custom/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/custom/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/custom/assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet"
-        type="text/css" />
+          type="text/css" />
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN THEME GLOBAL STYLES -->
     <link href="~/Content/custom/assets/global/css/components-rounded.min.css" rel="stylesheet" id="style_components" type="text/css" />
@@ -35,17 +43,180 @@
     <link href="~/Content/custom/assets/layouts/layout/css/themes/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color" />
     <link href="~/Content/custom/assets/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css" />
     <!-- END THEME LAYOUT STYLES -->
+
     <link rel="shortcut icon" href="favicon.ico" />
+    <style>
+        #listSearchContainer {
+            position: absolute;
+            z-index: 2;
+            width: 100%;
+            visibility: hidden;
+            background: white;
+            box-shadow: 0px 0px 20px gray;
+            transition-duration: 500;
+        }
+        .item-listSearch {
+            height: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 10px;
+        }
+        .item-listSearch:hover {
+            background: rgba(0,0,0,0.7);
+            color: white;
+            font-weight: bold;
+        }
+    </style>
     <script>
+        $(document).ready(function () {
+            $("#Code").click(function () {
+                $(this).next().show();
+                $(this).next().hide();
+            });
+        });
+    </script>
+    <script>
+        var allProduct;
+        var numberProduct = 1;
+        var product = new Array();
+        var amount = new Array();
+        var total = new Array();
         function searchCustomer() {
-            var Phone = document.getElementById('Phone').value;
-            console.log(Phone);
+            var phoneInput = document.getElementById('Phone');
+            var phoneNumber = phoneInput.value;
+            $.ajax({
+                method: 'POST',
+                url: '/Customer/SearchCustomer_JSON?phoneNumber=' + phoneNumber,
+                success: function (result) {
+                    if (result.length <= 5) {
+                        let str = "";
+                        result.forEach(item => {
+                            str += `<div
+                                    onclick='itemSearchClick("${item.Phone}")'
+                                    class="item-listSearch"
+                                    >${item.Phone}</div>`
+                        });
+                        document.getElementById("listSearchContainer").style.visibility = "visible";
+                        document.getElementById("listSearchContainer").innerHTML = str;
+                    } else {
+                        document.getElementById("listSearchContainer").style.visibility = "hidden";
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        }
+        function itemSearchClick(phoneNumber) {
+            console.log("itemClick: ", phoneNumber);
+            var phoneInput = document.getElementById('Phone');
+            phoneInput.value = phoneNumber;
+            document.getElementById("listSearchContainer").style.visibility = "hidden";
+        }
+        function getData() {
+            $.ajax({
+                method: 'POST',
+                url: '/Product/SearchProduct_JSON',
+                success: function (result) {
+                    allProduct = result;
+                    var value_code = '';
+                    for (var i = 0; i < result.length; i++) {
+                        value_code += '<option>' + result[i]['Code'] + '</option>';
+                    }
+                    document.getElementById('Code').innerHTML = value_code;
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        }
+        function printProduct(number) {
+            var Code = document.getElementsByName('ID')[number].value;
+            for (var i = 0; i < allProduct.length; i++) {
+                if (allProduct[i]['Code'] == Code) {
+                    product[number] = allProduct[i];
+                    break;
+                }
+            }
+            if (product[number] == null) {
+                return;
+            } else {
+                print(number);
+            }
+        }
+        function calculateTotal(number) {
+            amount[number] = document.getElementsByName('Amount')[number].value;
+            total[number] = makeNumber(amount[number] * product[number]['RetailPrice']);
+            document.getElementsByName('Total')[number].value = total[number];
+        }
+        function add() {
+            var value = '<tr>';
+            value += '<td>';
+            value += '  <input list="Code" class="form-control" size="15" onchange="printProduct(' + numberProduct + ')" name="ID" />';
+            value += '  <datalist id="Code"></datalist>';
+            value += '</td>';
+            value += '<td>';
+            value += '  <input type="text" value="" class="form-control" size="30" name="Name"/>';
+            value += '</td>';
+            value += '<td>';
+            value += '  <input class="form-control" type="text" size="9" value="" name="Status" readonly />';
+            value += '</td>';
+            value += '<td>';
+            value += '  <input class="form-control" type="text" size="9" value="" name="Oprice" readonly />';
+            value += '</td>';
+            value += '<td>';
+            value += '  <input class="form-control" type="text" size="9" value="" name="Price" readonly />';
+            value += '</td>';
+            value += '<td>';
+            value += '  <input class="form-control" type="number" style="width: 5em" value="" name="Amount" onchange="calculateTotal(' + numberProduct + ')" />';
+            value += '</td>';
+            value += '<td>';
+            value += '  <input class="form-control" type="text" style="width: 5em" value="" readonly name="Discount" />';
+            value += '</td>';
+            value += '<td>';
+            value += '  <input class="form-control" type="text" value="" readonly name="Total" />';
+            value += '</td>';
+            value += '</tr>';
+            document.getElementById('order-detail-body').innerHTML += value;
+            for (var i = 0; i < numberProduct; i++) {
+                print(i);
+            }
+            numberProduct++;
+            
+        }
+        function print(number) {
+            document.getElementsByName('ID')[number].value = product[number]['Code'];
+            document.getElementsByName('Name')[number].value = product[number]['Name'];
+            if (product[number]['Status'] == 0) {
+                document.getElementsByName('Status')[number].value = "Còn hàng";
+            } else {
+                document.getElementsByName('Status')[number].value = "Hết hàng";
+            }
+            document.getElementsByName('Oprice')[number].value = makeNumber(product[number]['RetailPrice']);
+            document.getElementsByName('Price')[number].value = makeNumber(product[number]['RetailPrice']);
+            document.getElementsByName('Amount')[number].value = (amount[number] == null ? 0 : amount[number]);
+            document.getElementsByName('Discount')[number].value = product[number]['DiscountRate'] + '%';
+            document.getElementsByName('Total')[number].value = (total[number] == null ? 0 : total[number]);
+        }
+        function makeNumber(number) {
+            var value = '';
+            var count = 0;
+            while (number >= 1) {
+                count++;
+                value = number % 10 + value;
+                number = Math.floor(number / 10);
+                if (count % 3 == 0 && number >= 1) {
+                    value = '.' + value;
+                }
+            }
+            return value;
         }
     </script>
 </head>
 <!-- END HEAD -->
 
-<body onload="" class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
+<body onload="getData()" class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
     <div class="page-wrapper">
         <!-- BEGIN HEADER -->
         <div class="page-header navbar navbar-fixed-top">
@@ -453,8 +624,11 @@
                                                                 </div>
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Phone Number: </div>
-                                                                    <div class="col-md-7 value">
-                                                                        <input class="form-control" onkeyup="searchCustomer()" type="number" value="" name="Phone" id="Phone" />
+                                                                    <div class="col-md-7 value" >
+                                                                        <input class="form-control" onkeyup="searchCustomer()" type="number" name="Phone" id="Phone" />
+                                                                        <div 
+                                                                             id="listSearchContainer">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -483,8 +657,9 @@
                                                                 <div class="caption">
                                                                     <i class="fa fa-cogs"></i>Shopping Cart </div>
                                                                 <div class="actions">
-                                                                    <a href="javascript:;" class="btn btn-default btn-sm">
-                                                                        <i class="fa fa-pencil"></i> Edit </a>
+                                                                    <button class="btn btn-default btn-sm" onclick="add()">
+                                                                        <i class="fa fa-plus"></i> Add
+                                                                    </button>
                                                                 </div>
                                                             </div>
                                                             <div class="portlet-body">
@@ -493,7 +668,7 @@
                                                                         <thead>
                                                                             <tr>
                                                                                 <th> Product ID</th>
-                                                                                <th> Product </th>
+                                                                                <th> Product Name</th>
                                                                                 <th> Item Status </th>
                                                                                 <th> Original Price </th>
                                                                                 <th> Price </th>
@@ -505,19 +680,30 @@
                                                                         <tbody id="order-detail-body">
                                                                             <tr>
                                                                                 <td>
-                                                                                    <input class="form-control" size="1" type="text" value="" name="ID" />
+                                                                                    <input list="Code" class="form-control" size="15" onchange="printProduct(0)" id="ID" name="ID" />
+                                                                                    <datalist id="Code"></datalist>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <input type="text" value="" name="Name" />
+                                                                                    <input type="text" value="" class="form-control" size="30" name="Name" id="Name" />
                                                                                 </td>
-                                                                                <td></td>
-                                                                                <td></td>
-                                                                                <td></td>
                                                                                 <td>
-                                                                                    <input type="number" value="" name="Amount" />
+                                                                                    <input class="form-control" type="text" size="9" value="" id="Status" name="Status" readonly />
                                                                                 </td>
-                                                                                <td></td>
-                                                                                <td></td>
+                                                                                <td>
+                                                                                    <input class="form-control" type="text" size="9" value="" id="Oprice" name="Oprice" readonly />
+                                                                                </td>
+                                                                                <td>
+                                                                                    <input class="form-control" type="text" size="9" value="" id="Price" name="Price" readonly />
+                                                                                </td>
+                                                                                <td>
+                                                                                    <input class="form-control" type="number" style="width: 5em" value="" name="Amount" id="Amount" onchange="calculateTotal(0)"/>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <input class="form-control" type="text" style="width: 5em" value="" readonly name="Discount" id="Discount" />
+                                                                                </td>
+                                                                                <td>
+                                                                                    <input class="form-control" type="text" value="" readonly id="Total" name="Total" />
+                                                                                </td>
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
@@ -565,14 +751,6 @@
 <script src="~/Content/custom/assets/global/plugins/excanvas.min.js"></script> 
 <script src="~/Content/custom/assets/global/plugins/ie8.fix.min.js"></script> 
 <![endif]-->
-    <!-- BEGIN CORE PLUGINS -->
-    <script src="~/Content/custom/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-    <script src="~/Content/custom/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="~/Content/custom/assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
-    <script src="~/Content/custom/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-    <script src="~/Content/custom/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-    <script src="~/Content/custom/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
-    <!-- END CORE PLUGINS -->
     <!-- BEGIN PAGE LEVEL PLUGINS -->
     <script src="~/Content/custom/assets/global/scripts/datatable.js" type="text/javascript"></script>
     <script src="~/Content/custom/assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>

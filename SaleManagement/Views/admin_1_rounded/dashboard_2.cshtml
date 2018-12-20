@@ -82,7 +82,7 @@
             while (number >= 1) {
                 count++;
                 value = number % 10 + value;
-                number = Math.round(number / 10);
+                number = Math.floor(number / 10);
                 if (count % 3 == 0 && number >= 1) {
                     value = '.' + value;
                 }
