@@ -14,4 +14,4 @@ namespace SaleManagement.Controllers
             return View();
         }
     }
-}
+} 

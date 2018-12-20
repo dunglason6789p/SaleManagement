@@ -9,7 +9,7 @@ namespace SaleManagement.Controllers.Statistic
 {
     public class CommonStatistic
     {
-        /// <summary>
+        /// <summary> 
         /// Trả ra một danh sách các object, mỗi object chứa số hiệu tháng (int) , số hiệu năm (int) , tổng giá trị hóa đơn bán trong tháng đó.
         /// </summary>
         /// <param name="controller"></param>

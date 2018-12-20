@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 
 namespace SaleManagement.Controllers.Statistic
-{
+{ 
     public class ProductStatistic
     {
         private static ApplicationDbContext _context = new ApplicationDbContext();
