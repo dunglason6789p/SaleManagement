@@ -138,7 +138,7 @@ namespace SaleManagement.Controllers.DBCreating
 
                 Staff staff = new Staff();
                 staff.Code = "NV000" + (i < 10 ? "0" + i.ToString() : i.ToString());
-                staff.UserName = staff.Code;
+                //staff.UserName = staff.Code;
                 staff.Salt = EncryptionHelper.GetSalt();
                 staff.PasswordEncrypted = EncryptionHelper.GetHash("123" + staff.Salt);
                 staff.Status = 0;
