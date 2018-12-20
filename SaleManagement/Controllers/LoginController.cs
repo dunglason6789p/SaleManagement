@@ -8,6 +8,8 @@ using SaleManagement.Models;
 using SaleManagement.Models.DAL;
 using SaleManagement.Controllers.Utilities;
 using SaleManagement.Controllers.Session;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace SaleManagement.Controllers
 {
@@ -71,6 +73,31 @@ namespace SaleManagement.Controllers
                     return View("~/Views/admin_1_rounded/page_user_login_1.cshtml");
                 }
             }
+        }
+
+        public ActionResult GetUserName_JSON()
+        {            
+            string converted = JsonConvert.SerializeObject(
+                Session[SessionKey.UserName].ToString(),
+                Formatting.None,
+                new IsoDateTimeConverter()
+                {
+                    DateTimeFormat = "yyyy-MM-dd"
+                });
+            return Content(converted, "application/json");
+        }
+
+        public ActionResult GetLoginInfo_JSON()
+        {
+            string userName = Session[SessionKey.UserName].ToString();
+            string converted = JsonConvert.SerializeObject(
+                _context.Admin.SingleOrDefault(m => m.UserName == userName),
+                Formatting.None,
+                new IsoDateTimeConverter()
+                {
+                    DateTimeFormat = "yyyy-MM-dd"
+                });
+            return Content(converted, "application/json");
         }
     }
 }

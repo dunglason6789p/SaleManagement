@@ -25,6 +25,6 @@ namespace SaleManagement.Controllers.CRUD
                 customerQuery = customerQuery.Where(m => m.Phone.Contains(phoneNumber));
             }
             return customerQuery.ToList();
-        }
+        }        
     }
 }

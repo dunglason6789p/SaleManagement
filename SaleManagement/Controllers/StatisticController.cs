@@ -106,5 +106,39 @@ namespace SaleManagement.Controllers
                 });
             return Content(converted, "application/json");
         }
+
+        public ActionResult GetTotalRevenue_JSON()
+        {
+            //GetTotalRevenueAllTime
+            string converted = JsonConvert.SerializeObject(
+                Statistic.CommonStatistic.GetTotalRevenueAllTime(this),
+                Formatting.None,
+                new IsoDateTimeConverter()
+                {
+                    DateTimeFormat = "yyyy-MM-dd"
+                });
+            return Content(converted, "application/json");
+        }
+
+        public ActionResult GetCommonInfo_JSON()
+        {
+            string converted = JsonConvert.SerializeObject(
+                new {
+                    //Tổng lợi nhuận
+                    totalRevenue = Statistic.CommonStatistic.GetTotalRevenueAllTime(this),
+                    //Tổng số đơn hàng
+                    totalSaleBillCount = Statistic.SaleStatistic.CountSaleBillAllTime(this),
+                    //Tổng số người dùng
+                    totalCustomer = Statistic.CustomerStatistic.CountCustomer(this),
+                    //Tổng giá trị hàng tồn kho
+                    totalProductValue = Statistic.ProductStatistic.GetCurrentTotalProductValue(this)
+                },
+                Formatting.None,
+                new IsoDateTimeConverter()
+                {
+                    DateTimeFormat = "yyyy-MM-dd"
+                });
+            return Content(converted, "application/json");
+        }
     }
 }

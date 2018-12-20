@@ -23,5 +23,18 @@ namespace SaleManagement.Controllers
                 });
             return Content(converted, "application/json");
         }
+
+
+        public ActionResult CountCustomer_JSON()
+        {
+            string converted = JsonConvert.SerializeObject(
+                Statistic.CustomerStatistic.CountCustomer(this),
+                Formatting.None,
+                new IsoDateTimeConverter()
+                {
+                    DateTimeFormat = "yyyy-MM-dd"
+                });
+            return Content(converted, "application/json");
+        }
     }
 } 
