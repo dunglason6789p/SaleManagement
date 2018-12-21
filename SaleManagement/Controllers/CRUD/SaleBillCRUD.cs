@@ -227,6 +227,8 @@ namespace SaleManagement.Controllers.CRUD
 
         public static int CreateSaleBill(SaleBill saleBill)
         {
+            int maxID = _context.SaleBill.OrderByDescending(m => m.ID).Select(m => m.ID).First();
+            saleBill.ID = maxID + 1;
             _context.SaleBill.Add(saleBill);
             foreach (var saleBillDetail in saleBill.SaleBillDetails)
             {

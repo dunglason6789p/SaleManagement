@@ -126,6 +126,8 @@ namespace SaleManagement.Controllers
             var listProductConverted = JsonConvert.DeserializeAnonymousType(listProduct, listProductDefinition);
             */
 
+            int maxID = _context.SaleBill.OrderByDescending(m => m.ID).Select(m => m.ID).First();
+
             dynamic listProductConverted = JsonConvert.DeserializeObject(listProduct);
 
             dynamic amountConverted = JsonConvert.DeserializeObject(amount);
@@ -140,8 +142,10 @@ namespace SaleManagement.Controllers
 
             for(int i=0; i<listProductConverted.Count; i++)
             {
+                int productID = listProductConverted[i].ID;
                 saleBillDetails.Add(new SaleBillDetail()
                 {
+                    Product = _context.Product.SingleOrDefault(m => m.ID == productID),
                     ProductID = listProductConverted[i].ID,
                     Amount = amountConverted[i],
                     Price = listProductConverted[i].RetailPrice
@@ -154,13 +158,21 @@ namespace SaleManagement.Controllers
             foreach(var item in saleBillDetails)
             {
                 sum += item.Amount * item.Price;
+                
             }
             saleBill.TotalValue = sum;
+
+            saleBill.DateCreated = DateTime.Now;
+
+            
+
+            saleBill.Code = "HDB000" + (maxID + 1);
+            
 
             _context.SaveChanges();
 
 
-            int id = CRUD.SaleBillCRUD.CreateSaleBill(saleBill);
+            //int id = CRUD.SaleBillCRUD.CreateSaleBill(saleBill);
             return Json(new
             {
                 saleBill
